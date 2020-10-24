@@ -1,0 +1,94 @@
+/*
+    ========================================================================
+    #INUIT VARIABLES
+    ========================================================================
+
+    The inuit variables file contains any variables which has to overwrite
+    default variables.
+*/
+$inuit-use-markup-fix: true;
+$inuit-fractions: 1 2 3 4 5 6 7 8 9 10 11 12 24;
+$inuit-offsets: true;
+$inuit-pulls: true;
+$inuit-insets: true;
+// $inuit-fractions: 5 7 12 24;
+// $inuit-offsets: false;
+// $inuit-pulls: false;
+// $inuit-insets: false;
+$inuit-widths-delimiter: \/;
+$inuit-widths-breakpoint-separator: \@;
+
+/*
+    This core file sets up inuitcss’ most important setup variables. They
+    underpin a lot of how the framework functions and should be modified and
+    preconfigured with caution.
+
+    Baseline grid lines height.
+    Every spacing metric should be based on this.
+*/
+
+$inuit-global-baseline: 4px;
+
+/*
+    How many grid lines should our spacing unit variants span?
+    Each value should be an unitless integer.
+*/
+
+$inuit-global-spacing-unit-factor-micro: 1; //4px
+$inuit-global-spacing-unit-factor-tiny: 2; //8px
+$inuit-global-spacing-unit-factor-small: 3; //12px
+$inuit-global-spacing-unit-factor: 4; //16px
+$inuit-global-spacing-unit-factor-big: 5; //20px
+$inuit-global-spacing-unit-factor-large: 6; //24px
+$inuit-global-spacing-unit-factor-great: 8; //32px
+$inuit-global-spacing-unit-factor-huge: 10;
+$inuit-global-spacing-unit-factor-awesome: 12;
+$inuit-global-spacing-unit-factor-massive: 20; //80px
+
+$inuit-global-spacing-unit-micro: $inuit-global-baseline *
+  $inuit-global-spacing-unit-factor-micro;
+$inuit-global-spacing-unit-tiny: $inuit-global-baseline *
+  $inuit-global-spacing-unit-factor-tiny;
+$inuit-global-spacing-unit-small: $inuit-global-baseline *
+  $inuit-global-spacing-unit-factor-small;
+$inuit-global-spacing-unit: $inuit-global-baseline *
+  $inuit-global-spacing-unit-factor;
+$inuit-global-spacing-unit-big: $inuit-global-baseline *
+  $inuit-global-spacing-unit-factor-big;
+$inuit-global-spacing-unit-large: $inuit-global-baseline *
+  $inuit-global-spacing-unit-factor-large;
+$inuit-global-spacing-unit-great: $inuit-global-baseline *
+  $inuit-global-spacing-unit-factor-great;
+$inuit-global-spacing-unit-huge: $inuit-global-baseline *
+  $inuit-global-spacing-unit-factor-huge;
+$inuit-global-spacing-unit-awesome: $inuit-global-baseline *
+  $inuit-global-spacing-unit-factor-awesome;
+$inuit-global-spacing-unit-massive: $inuit-global-baseline *
+  $inuit-global-spacing-unit-factor-massive;
+
+/*
+    Base typographical styles.
+*/
+
+$inuit-global-font-size: 16px !default;
+$inuit-global-line-height: 1.5em !default;
+
+/*
+    Base headings.
+*/
+
+$inuit-font-size-h0: ceil($inuit-global-font-size * 4) !default;
+$inuit-font-size-h1: ceil($inuit-global-font-size * 2.5) !default;
+$inuit-font-size-h2: ceil($inuit-global-font-size * 2) !default;
+$inuit-font-size-h3: ceil($inuit-global-font-size * 1.5) !default;
+$inuit-font-size-h4: $inuit-global-font-size;
+$inuit-font-size-h5: ceil($inuit-global-font-size * 0.875) !default;
+$inuit-font-size-h6: ceil($inuit-global-font-size * 0.75) !default;
+
+$inuit-line-height-h0: $inuit-global-line-height !default;
+$inuit-line-height-h1: $inuit-global-line-height !default;
+$inuit-line-height-h2: $inuit-global-line-height !default;
+$inuit-line-height-h3: $inuit-global-line-height !default;
+$inuit-line-height-h4: $inuit-global-line-height !default;
+$inuit-line-height-h5: $inuit-global-line-height !default;
+$inuit-line-height-h6: $inuit-global-line-height !default;

@@ -1,0 +1,19 @@
+/* ==========================================================================
+   #LINK
+   ========================================================================== */
+
+.o-link {
+  color: inherit;
+  text-decoration: underline;
+
+  &:hover {
+    color: color-var(font, 4);
+  }
+  &--visible {
+    text-decoration: none;
+    color: color-var(font, 4);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

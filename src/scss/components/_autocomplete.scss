@@ -1,0 +1,32 @@
+.autocomplete-suggestions {
+  text-align: left;
+  cursor: default;
+  border: $global-border solid color-var(border);
+  border-top: 0;
+  background: color-var(bg);
+
+  /* core styles should not be changed */
+  position: absolute;
+  display: none;
+  z-index: 9999;
+  overflow: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.autocomplete-suggestion {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: $inuit-global-spacing-unit-small $inuit-global-spacing-unit;
+}
+
+.autocomplete-suggestion b {
+  font-weight: $global-strong-font-weight;
+  color: color-var(font, 4);
+}
+
+.autocomplete-suggestion.selected {
+  background: color-var(bg, 5);
+}

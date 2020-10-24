@@ -1,0 +1,31 @@
+/* ==========================================================================
+   #FILELIST
+   ========================================================================== */
+
+.c-filelist {
+  margin-bottom: $inuit-global-spacing-unit-large;
+
+  &:empty {
+    margin-bottom: 0;
+  }
+
+  &__item {
+    background: no-repeat top -4px left -1px;
+    padding-left: $inuit-global-spacing-unit-huge;
+
+    &:not(:last-child) {
+      margin-bottom: $inuit-global-spacing-unit-small;
+    }
+  }
+
+  &__name {
+    display: block;
+    // padding-top: $inuit-global-spacing-unit-tiny;
+  }
+
+  &__size {
+    display: block;
+    @include inuit-font-size($inuit-font-size-h6);
+    color: color-var(font, 2);
+  }
+}

@@ -1,0 +1,15 @@
+.c-tag {
+  display: inline-block;
+  text-transform: lowercase;
+  color: color-var(font, 3);
+  @include inuit-font-size($inuit-font-size-h6, 1.3334em);
+  padding: $inuit-global-spacing-unit-micro $inuit-global-spacing-unit-tiny;
+  background: color-var(bg, 8);
+
+  &--alternative {
+    color: color-var(font, 2);
+    background: color-var(bg);
+    border: 1px solid color-var(border);
+    border-radius: 2px;
+  }
+}

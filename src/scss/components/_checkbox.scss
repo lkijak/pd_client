@@ -1,0 +1,17 @@
+/* ==========================================================================
+   #CHECKBOX
+   ========================================================================== */
+
+.c-checkbox {
+  @include clickableInput();
+
+  &__replacement {
+    border-radius: 0;
+    @include checkboxTick();
+  }
+
+  &--disabled {
+    background-color: darken(color-var(bg, 4), 15%) !important;
+    border-color: color-var(border, 1) !important;
+  }
+}

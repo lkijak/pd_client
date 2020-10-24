@@ -1,0 +1,37 @@
+/* ==========================================================================
+   #TEXTAREA
+   ========================================================================== */
+
+.c-textarea {
+  @include formInput();
+  min-height: $inuit-global-spacing-unit-massive;
+  min-width: 100%;
+  max-width: 100%;
+  @include transition();
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__counter {
+    text-align: right;
+    flex: 1;
+    white-space: nowrap;
+    @include inuit-font-size($inuit-font-size-h5);
+    padding-left: $inuit-global-spacing-unit-small;
+    margin-top: $inuit-global-spacing-unit-small;
+    color: color-var(font, 6);
+
+    .c-label__error + & {
+      color: color-var(error);
+    }
+  }
+
+  &--disabled {
+    background-color: color-var(bg, 1) !important;
+    border-color: color-var(border, 1) !important;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3) !important;
+  }
+}

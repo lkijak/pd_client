@@ -1,0 +1,24 @@
+@include inuit-flexwidths($inuit-fractions);
+/*
+    ==========================================================================||
+    Similar to inuitcss utilities.widths, $mq-breakpoints defined allows
+    you to do something like this for additional control via markup only
+
+    e.g.
+    <div class="o-flex__item u-flex-1/2@mobile"></div>
+    <div class="o-flex__item u-flex-1/3@tablet u-flex-offset-1/3@tablet"></div>
+    <div class="o-flex__item u-flex-1/4@desktop"></div>
+    <div class="o-flex__item u-flex-1/5@wide u-flex-offset-2/5@wide"></div>
+    ==========================================================================||
+*/
+
+@if (variable-exists(mq-breakpoints)) {
+  @each $bp-name, $bp-value in $mq-breakpoints {
+    @include mq($from: $bp-name) {
+      @include inuit-flexwidths(
+        $inuit-fractions,
+        #{$inuit-widths-breakpoint-separator}#{$bp-name}
+      );
+    }
+  }
+}

@@ -1,0 +1,128 @@
+/*
+    ==========================================================================||
+    Overwrites inuitcss/utilities/widths as it will be used alongside o-flex
+    instead of o-layout
+    ==========================================================================||
+    Inherited from inuitcss
+*/
+
+$inuit-fractions: 1 2 3 4 5 !default;
+$inuit-insets: false !default;
+$inuit-offsets: false !default;
+$inuit-pulls: false !default;
+$inuit-widths-delimiter: \/ !default;
+$inuit-widths-breakpoint-separator: \@ !default;
+/*
+    ==========================================================================||
+    Mixin to spit out width classes similar to inuitcss except that
+    u-push/u-pull is replaced with u-offset which its direction is influenced
+    by o-flex's direction and if $inuit-offsets is set to true
+
+    e.g.
+    <div class="u-flex-1/2"></div>
+    <div class="u-flex-1/2 u-flex-offset-1/2"></div>
+    ==========================================================================||
+*/
+
+@function decimal-round($number, $digits: 0, $mode: round) {
+  $n: 1;
+  // $number must be a number
+  @if type-of($number) != number {
+    @warn '#{ $number } is not a number.';
+    @return $number;
+  }
+  // $digits must be a unitless number
+  @if type-of($digits) != number {
+    @warn '#{ $digits } is not a number.';
+    @return $number;
+  } @else if not unitless($digits) {
+    @warn '#{ $digits } has a unit.';
+    @return $number;
+  }
+  @for $i from 1 through $digits {
+    $n: $n * 10;
+  }
+  @if $mode == round {
+    @return round($number * $n) / $n;
+  } @else if $mode == ceil {
+    @return ceil($number * $n) / $n;
+  } @else if $mode == floor {
+    @return floor($number * $n) / $n;
+  } @else {
+    @warn '#{ $mode } is undefined keyword.';
+    @return $number;
+  }
+}
+@mixin inuit-flex-part($numerator, $denominator) {
+  $rounded: decimal-round(($numerator / $denominator), 5, floor);
+  flex: 0 0 $rounded * 100% !important;
+  max-width: $rounded * 100% !important;
+}
+
+@mixin inuit-flexwidths($fractions, $breakpoint: null) {
+  @each $denominator in $fractions {
+    @for $numerator from 1 through $denominator {
+      $rounded: decimal-round(($numerator / $denominator), 5, floor);
+      .u-flex-#{$numerator}#{$inuit-widths-delimiter}#{$denominator}#{$breakpoint} {
+        @include inuit-flex-part($numerator, $denominator);
+      }
+
+      @if ($inuit-offsets==true) {
+        .o-flex:not(.o-flex--reversed)
+          .o-flex__item.u-flex-offset-#{$numerator}#{$inuit-widths-delimiter}#{$denominator}#{$breakpoint} {
+          margin-left: $rounded * 100% !important;
+        }
+
+        .o-flex.o-flex--reversed
+          .o-flex__item.u-flex-offset-#{$numerator}#{$inuit-widths-delimiter}#{$denominator}#{$breakpoint} {
+          margin-right: $rounded * 100% !important;
+        }
+      }
+      @if ($inuit-insets==true) {
+        .o-flex:not(.o-flex--reversed)
+          .o-flex__item.u-flex-inset-#{$numerator}#{$inuit-widths-delimiter}#{$denominator}#{$breakpoint} {
+          margin-right: $rounded * 100% !important;
+        }
+
+        .o-flex.o-flex--reversed
+          .o-flex__item.u-flex-inset-#{$numerator}#{$inuit-widths-delimiter}#{$denominator}#{$breakpoint} {
+          margin-left: $rounded * 100% !important;
+        }
+      }
+
+      @if ($inuit-pulls==true) {
+        .o-flex:not(.o-flex--reversed)
+          .o-flex__item.u-flex-pull-#{$numerator}#{$inuit-widths-delimiter}#{$denominator}#{$breakpoint} {
+          margin-left: -$rounded * 100% !important;
+        }
+
+        .o-flex.o-flex--reversed
+          .o-flex__item.u-flex-pull-#{$numerator}#{$inuit-widths-delimiter}#{$denominator}#{$breakpoint} {
+          margin-right: -$rounded * 100% !important;
+        }
+      }
+    }
+  }
+
+  @if ($inuit-offsets==true) {
+    .o-flex:not(.o-flex--reversed)
+      .o-flex__item.u-flex-offset-none#{$breakpoint} {
+      margin-left: 0 !important;
+    }
+
+    .o-flex.o-flex--reversed .o-flex__item.u-flex-offset-none#{$breakpoint} {
+      margin-right: 0 !important;
+    }
+  }
+
+  @if ($inuit-pulls==true) {
+    .o-flex:not(.o-flex--reversed)
+      .o-flex__item.u-flex-pull-none#{$breakpoint} {
+      margin-left: 0 !important;
+    }
+
+    .o-flex.o-flex--reversed .o-flex__item.u-flex-pull-none#{$breakpoint} {
+      margin-right: 0 !important;
+    }
+  }
+}

@@ -1,0 +1,160 @@
+/* ==========================================================================
+   #INPUT
+   ========================================================================== */
+
+.c-input {
+  $self: &;
+  @include formInput();
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  &[type='password'] {
+    letter-spacing: 8px;
+  }
+
+  &--number {
+    &::-webkit-inner-spin-button {
+      display: none;
+      pointer-events: none;
+    }
+
+    /* stylelint-disable */
+    -moz-appearance: textfield;
+    /* stylelint-enable */
+  }
+
+  &--date {
+    background: color-var(bg) no-repeat
+      center right $inuit-global-spacing-unit;
+    appearance: none;
+    /* stylelint-disable */
+    -moz-appearance: textfield;
+    /* stylelint-enable */
+
+    &::-webkit-datetime-edit {
+      padding: 0;
+    }
+
+    &::-webkit-datetime-edit-fields-wrapper {
+      padding: 0;
+    }
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-clear-button {
+      display: none;
+      pointer-events: none;
+    }
+
+    &::-ms-clear {
+      display: none;
+      pointer-events: none;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      opacity: 0 !important;
+      height: $inuit-font-size-h4;
+      cursor: pointer;
+
+      @include mq($from: medium) {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &--password {
+    padding-right: $inuit-global-spacing-unit-huge;
+  }
+
+  &--with-prefix {
+    padding-left: $inuit-global-spacing-unit-huge + $inuit-global-spacing-unit;
+  }
+
+  &--with-suffix {
+    padding-right: $inuit-global-spacing-unit-huge + $inuit-global-spacing-unit;
+  }
+
+  &--disabled {
+    background-color: color-var(bg, 1) !important;
+    border-color: color-var(border, 1) !important;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3) !important;
+  }
+
+  &--file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__file-edit-cta {
+    display: none;
+  }
+
+  &__container {
+    position: relative;
+
+    &--file {
+      background: color-var(bg);
+      text-align: center;
+      border: 2px dashed color-var(border);
+      padding: $inuit-global-spacing-unit $inuit-global-spacing-unit-huge;
+
+      .c-label--error & {
+        border-color: color-var(error);
+      }
+
+      .c-label--disabled & {
+        opacity: 0.5;
+      }
+    }
+
+    &--file.is-chosen {
+      #{$self}__file-cta {
+        display: none;
+      }
+
+      #{$self}__file-edit-cta {
+        display: block;
+      }
+    }
+  }
+
+  &__password-eye {
+    position: absolute;
+    right: $inuit-global-spacing-unit;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: $inuit-global-spacing-unit-large;
+    height: $inuit-global-spacing-unit-large;
+    cursor: pointer;
+  }
+
+  &__prefix,
+  &__suffix {
+    position: absolute;
+    top: 0;
+    color: color-var(font);
+    font-size: $inuit-font-size-h4;
+    font-weight: $global-strong-font-weight;
+    padding: $inuit-global-spacing-unit-small $inuit-global-spacing-unit;
+    border-top: $global-border solid transparent;
+    border-bottom: $global-border solid transparent;
+  }
+
+  &__prefix {
+    left: 0;
+  }
+
+  &__suffix {
+    right: 0;
+  }
+
+  &__calendar {
+    position: relative;
+    z-index: 1;
+  }
+}

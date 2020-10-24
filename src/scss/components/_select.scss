@@ -1,0 +1,95 @@
+/* ==========================================================================
+   #SELECT
+   ========================================================================== */
+
+.c-select {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  display: block !important;
+  opacity: 0;
+
+  @include mq($from: large) {
+    pointer-events: none;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__title {
+    @include formInput();
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+
+    padding-right: $inuit-global-spacing-unit + $inuit-global-spacing-unit-huge;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: $inuit-global-spacing-unit + $inuit-global-spacing-unit-huge;
+      height: 100%;
+    }
+
+    &.is-open:after {
+      transform: rotateX(180deg);
+    }
+  }
+
+  &__list {
+    border: 1px solid color-var(border);
+    margin-top: -1px;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: color-var(bg);
+
+    &.is-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &__item {
+    padding: $inuit-global-spacing-unit-small $inuit-global-spacing-unit;
+    margin: 0;
+    cursor: pointer;
+
+    &:hover {
+      background: color-var(bg, 4);
+    }
+
+    &:first-child {
+      display: none;
+    }
+
+    &.is-selected {
+      background: color-var(bg, 5);
+    }
+  }
+
+  .c-label--disabled & {
+    &__title {
+      pointer-events: none;
+      color: color-var(font, 1);
+      background-color: color-var(bg, 1) !important;
+      border-color: color-var(border, 1) !important;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.3) !important;
+
+      &:focus,
+      &:active {
+        border-color: color-var(bg, 5);
+      }
+    }
+  }
+}

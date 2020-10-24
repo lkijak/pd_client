@@ -1,0 +1,33 @@
+/* ==========================================================================
+   #HEADINGS
+   ========================================================================== */
+
+.c-heading {
+  position: relative;
+  font-weight: $global-heading-font-weight;
+  font-family: $global-heading-font-family;
+  margin-bottom: $inuit-global-spacing-unit;
+  @include inuit-font-size($inuit-font-size-h4);
+  z-index: 1;
+  color: color-var(font, 2);
+
+  &--h0 {
+    @include inuit-font-size($inuit-font-size-h0, $inuit-line-height-h0);
+  }
+
+  &--h1 {
+    @include inuit-font-size($inuit-font-size-h1, $inuit-line-height-h1);
+  }
+
+  &--h2 {
+    @include inuit-font-size($inuit-font-size-h2, $inuit-line-height-h2);
+  }
+
+  &--h3 {
+    @include inuit-font-size($inuit-font-size-h3, $inuit-line-height-h3);
+  }
+
+  &--h4 {
+    font-size: 18px;
+  }
+}

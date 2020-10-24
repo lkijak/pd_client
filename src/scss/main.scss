@@ -1,0 +1,151 @@
+@import 'presettings/_colors';
+@import 'presettings/_custom-borders_shadows';
+@import 'presettings/_custom-colors';
+@import 'presettings/_custom-transitions';
+@import 'presettings/_custom-typography';
+@import 'presettings/_default-colors';
+
+@import 'settings/_global';
+@import 'settings/_inuit-variables';
+
+@import 'sass-mq/_mq';
+
+@import 'tools/_breakpoints';
+@import 'tools/_clearfix';
+@import 'tools/_decoration';
+@import 'tools/_flex-widths-small';
+@import 'tools/_flex-widths';
+@import 'tools/_flex';
+@import 'tools/_font-size';
+@import 'tools/_form';
+@import 'tools/_hidden';
+@import 'tools/_rwd';
+@import 'tools/_svg';
+
+@import 'generic/_box-sizing';
+@import 'generic/_font-face';
+@import 'generic/_reset';
+@import 'generic/_shared';
+
+@import 'elements/_blockquote';
+@import 'elements/_headings';
+@import 'elements/_hr';
+@import 'elements/_html';
+@import 'elements/_images';
+@import 'elements/_links';
+@import 'elements/_lists';
+@import 'elements/_tables';
+
+@import 'objects/_flex';
+@import 'objects/_layout';
+@import 'objects/_link';
+@import 'objects/_list-bare'; 
+@import 'objects/_list-inline';
+@import 'objects/_media';
+@import 'objects/_section';
+@import 'objects/_table';
+@import 'objects/_wrapper';
+
+// @import 'components/datepicker';
+// @import 'components/filelist';
+// @import 'components/form';
+// @import 'components/harmony';
+@import 'components/headings';
+// @import 'components/input';
+// @import 'components/label';
+// @import 'components/radio';
+// @import 'components/select';
+// @import 'components/switch';
+// @import 'components/tag';
+// @import 'components/textarea';
+
+// Components
+html, body {
+    overflow-x: hidden;
+}
+
+.c-start {
+    &__image, &__container {
+        height: 100%;
+    }
+
+    &__image {
+        opacity: 0;
+        background: url(../img/bg-start.jpg);
+        background-repeat: no-repeat;
+        background-position: center;    
+        background-size: cover;
+        animation: fade-in 0.75s ease-in both;
+    }
+
+    &__container {
+        background-position: 0%;
+        background-size: 200% !important;
+        background: linear-gradient(to right, color-var(func, 4) 50%, color-var(bg, 2) 50%);
+        animation: fill-in-bg 1s cubic-bezier(0.25,0.1,0.25,1) both;
+        animation-delay: 0s;
+    }
+
+    &__content {
+        opacity: 0;
+        padding: 60px 80px;
+        position: absolute;
+        left: 40%;
+        right: auto;
+        width: max-content;
+        box-shadow: 10px 10px 25px rgba(0,0,0,0.4);
+        animation: fade-in-top 1.5s cubic-bezier(0.25,0.1,0.25,1) both;
+        animation-delay: 0.2s;
+    }
+
+    &__buttons {
+        position: absolute;
+        bottom: 20px;
+        right: 0;
+        transform: translateY(100px);
+    }
+}
+
+.c-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 15px;
+}
+
+.c-button {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    font-weight: 500;
+    background: white;
+    border-radius: 5px;
+    padding: 12px 30px 12px 25px;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    transition: $global-transition;
+
+    &:hover, &:focus, &:active {
+        box-shadow: 10px 10px 25px rgba(0,0,0,0.4);
+        transform: scale(1.01);
+    }
+}
+
+.c-menu--top {
+    position: absolute;
+    padding: 12px;
+    top: 20px;
+    right: -2px;
+    background: rgba(0,0,0,0.8);
+    line-height: 1;
+    border-radius: 4px;
+}
+
+@import 'utilities/_align';
+@import 'utilities/_animations';
+@import 'utilities/_clearfix';
+@import 'utilities/_custom';
+@import 'utilities/_flex-widths';
+@import 'utilities/_hide';
+@import 'utilities/_misc';
+@import 'utilities/_spacings';
+@import 'utilities/_text';

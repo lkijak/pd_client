@@ -1,0 +1,41 @@
+/* ==========================================================================
+   #Harmony
+   ========================================================================== */
+
+.c-harmony {
+  &__elem {
+    &.is-active {
+      .c-harmony__content {
+        display: block;
+      }
+
+      .c-harmony__title:after {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+
+  &__content {
+    display: none;
+  }
+
+  &__title {
+    cursor: pointer;
+    border-bottom: 1px solid color-var(font);
+    padding: $inuit-global-spacing-unit-big 0;
+    position: relative;
+    padding-right: $inuit-global-spacing-unit-massive;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: $inuit-global-spacing-unit-massive;
+      height: 100%;
+      background: no-repeat center right
+        $inuit-global-spacing-unit;
+      background-size: $inuit-global-spacing-unit-large;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+/* ==========================================================================
+   #SWITCH BUTTON
+   ========================================================================== */
+
+.c-switch {
+  @include clickableInput();
+  $switchsize: ($inuit-global-spacing-unit-tiny + 2 * $global-border) * 2;
+  $switchposition: ($switchsize / 4) + $global-border;
+  height: $switchsize;
+  @include transition();
+
+  &__input {
+    @include inuit-hidden-visually();
+  }
+
+  &:hover {
+    .c-switch {
+      &__replacement {
+        border-color: color-var(border);
+        color: color-var(border);
+      }
+    }
+  }
+
+  &__replacement {
+    width: $inuit-global-spacing-unit-great;
+    height: $switchsize/2;
+    border-radius: $switchsize/4;
+    top: $switchposition;
+
+    &:before {
+      @include absolutePseudoContent();
+      @include square-style($switchsize);
+      border-radius: 50%;
+      left: -1px;
+      top: $switchposition * -1;
+      background: color-var(bg);
+      border: 1px solid color-var(border);
+    }
+  }
+
+  input:checked {
+    & + .c-switch__replacement {
+      background: color-var(border);
+
+      &:before {
+        left: auto;
+        right: -1px;
+      }
+    }
+  }
+}

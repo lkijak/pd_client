@@ -1,0 +1,84 @@
+/* ==========================================================================
+   #LABEL
+   ========================================================================== */
+
+.c-label {
+  display: block;
+  // margin-bottom: $inuit-global-spacing-unit-great;
+
+  &__title {
+    @include inuit-font-size($inuit-font-size-h4);
+    display: inline-block;
+    color: color-var(font, 3);
+  }
+
+  &__desc {
+    @include inuit-font-size($inuit-font-size-h6);
+    line-height: 1.5em;
+    margin-top: $inuit-global-spacing-unit-micro;
+    margin-bottom: $inuit-global-spacing-unit-micro;
+    display: block;
+  }
+
+  &__error {
+    display: block;
+    @include inuit-font-size($inuit-font-size-h5);
+    padding-left: $inuit-global-spacing-unit-great;
+    margin-top: $inuit-global-spacing-unit-small;
+    color: color-var(error);
+    @include icon-inside(true, error);
+  }
+
+  &__asterisk {
+    color: color-var(error);
+  }
+
+  &__container {
+    margin-bottom: $inuit-global-spacing-unit-great;
+  }
+
+  &--disabled {
+    pointer-events: none;
+
+    &.c-label,
+    .c-label__title {
+      color: color-var(font, 2);
+    }
+  }
+
+  &--inline {
+    display: inline-block;
+    margin-right: $inuit-global-spacing-unit-small;
+  }
+
+  &--toggleable {
+    padding-bottom: $inuit-global-spacing-unit-micro;
+    border-bottom: 1px solid;
+  }
+
+  &.is-toggled {
+    display: none;
+  }
+
+  &--toggleable-arr {
+    width: 100%;
+    padding-right: $inuit-global-spacing-unit-great;
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: $inuit-global-spacing-unit-large;
+    }
+
+    &.is-active {
+      &:after {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+}

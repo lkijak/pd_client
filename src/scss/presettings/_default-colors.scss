@@ -1,0 +1,28 @@
+$baseColors: (
+    "main": (
+        #ffc018,
+    ),
+    "sub": (
+        blue,
+    ),
+    "func": (
+        #ffffff, #ececec, #44484d, #313337, #191919,
+    ),
+    "success": (
+        #00aa42,
+    ),
+    "error": (
+        #aa0000,
+    ),
+) !default;
+$useColors: (
+    "font": (
+        color-var(func, 4), color-var(func, 5), color-var(func, 1), color-var(main, 1), color-var(sub, 1), color-var(success, 1), color-var(error, 1)
+    ),
+    "bg": (
+        color-var(func, 1), color-var(main, 1), color-var(sub, 1), color-var(func, 2), color-var(func, 3), color-var(func, 4), color-var(func, 5)
+    ),
+    "border": (
+        color-var(func, 1) color-var(main, 1) color-var(sub, 1)
+    ),
+) !default;

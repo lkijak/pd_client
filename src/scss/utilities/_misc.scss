@@ -1,0 +1,168 @@
+/*
+    ==========================================================================
+    #TEXT UTILITIES
+    ==========================================================================
+*/
+
+/*
+    Size utilities
+*/
+
+.u-text--bigger {
+  @include inuit-font-size($inuit-font-size-h3, $important: true);
+}
+
+.u-text--natural {
+  @include inuit-font-size($inuit-global-font-size, $important: true);
+}
+
+.u-text--smaller {
+  @include inuit-font-size($inuit-font-size-h5, $important: true);
+}
+
+.u-text--smallest {
+  @include inuit-font-size($inuit-font-size-h6, $important: true);
+}
+
+.u-text--cta {
+  @include inuit-font-size($inuit-font-size-h5, $important: true);
+  text-transform: uppercase;
+}
+
+.has-normal-font-size {
+  @include inuit-font-size(
+    $inuit-global-font-size,
+    $line-height: 'none',
+    $important: true
+  );
+}
+
+.has-regular-font-size {
+  @include inuit-font-size(
+    $inuit-global-font-size,
+    $line-height: 'none',
+    $important: true
+  );
+}
+
+.has-small-font-size {
+  @include inuit-font-size(
+    $inuit-font-size-h5,
+    $line-height: 'none',
+    $important: true
+  );
+}
+
+.has-large-font-size {
+  @include inuit-font-size(
+    $inuit-font-size-h3,
+    $line-height: 'none',
+    $important: true
+  );
+}
+
+.has-larger-font-size {
+  @include inuit-font-size(
+    $inuit-font-size-h4 + 6px,
+    $line-height: 'none',
+    $important: true
+  );
+  line-height: 2.5rem;
+}
+
+/*
+    Weight utilities
+*/
+
+.u-text--strong {
+  font-weight: $global-strong-font-weight !important;
+}
+
+.u-text--regular {
+  font-weight: 400 !important;
+}
+
+/*
+    Transform utilities
+*/
+
+.u-text--uppercase {
+  text-transform: uppercase;
+}
+
+.u-text--lowercase {
+  text-transform: lowercase;
+}
+
+/*
+    Base Colors utilities
+*/
+
+@each $type, $colors in $baseColors {
+  $iter: 1;
+
+  @each $color in $colors {
+    .u-color--#{$type}-#{$iter} {
+      background-color: $color !important;
+    }
+    .u-font--#{$type}-#{$iter},
+    .u-font--#{$type}-#{$iter} *:not(.c-button) {
+      color: $color !important;
+    }
+
+    $iter: $iter + 1;
+  }
+}
+
+/*
+    Colors utilities
+*/
+/* stylelint-disable */
+@each $type, $colors in $useColors {
+  $iter: 1;
+
+  @each $color in $colors {
+    .u-#{$type}-color--#{$iter} {
+      @if ($type==font) {
+        color: $color !important;
+      } @else if($type==bg) {
+        background-color: $color !important;
+      } @else if($type==border) {
+        border-color: $color !important;
+      } @else {
+        color: $color !important;
+      }
+    }
+
+    $iter: $iter + 1;
+  }
+}
+
+/*
+    Align utilities
+*/
+@include responsiveClasses(u-text--left) {
+  text-align: left !important;
+}
+
+@include responsiveClasses(u-text--center) {
+  text-align: center !important;
+}
+
+@include responsiveClasses(u-text--right) {
+  text-align: right !important;
+}
+
+.u-text--intend {
+  padding-left: 30px !important;
+}
+
+/*
+
+    State utilities
+
+*/
+
+.u-disabled {
+  cursor: not-allowed !important;
+}

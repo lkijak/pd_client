@@ -1,0 +1,48 @@
+@mixin classmq($class, $from, $until, $condition) {
+  @include mq($from: $from, $until: $until) {
+    @if ($condition) {
+      #{$class} {
+        @content;
+      }
+    }
+  }
+}
+@mixin responsiveClasses($classname) {
+  .#{$classname} {
+    @content;
+  }
+  @if (variable-exists(mq-breakpoints)) {
+    @each $bp-name-start, $bp-value-start in $mq-breakpoints {
+      $class: '.#{$classname}#{$inuit-widths-breakpoint-separator}#{$bp-name-start}';
+      @include classmq(
+        $class: $class,
+        $from: $bp-name-start,
+        $until: false,
+        $condition: true
+      ) {
+        @content;
+      }
+      $class: '.#{$classname}#{$inuit-widths-breakpoint-separator}less-then-#{$bp-name-start}';
+      @include classmq(
+        $class: $class,
+        $from: false,
+        $until: $bp-name-start,
+        $condition: true
+      ) {
+        @content;
+      }
+      @each $bp-name-end, $bp-value-end in $mq-breakpoints {
+        $class: '.#{$classname}#{$inuit-widths-breakpoint-separator}#{$bp-name-start}-till-#{$bp-name-end}';
+        $contidion: $bp-value-start < $bp-value-end;
+        @include classmq(
+          $class: $class,
+          $from: $bp-name-start,
+          $until: $bp-name-end,
+          $condition: $contidion
+        ) {
+          @content;
+        }
+      }
+    }
+  }
+}

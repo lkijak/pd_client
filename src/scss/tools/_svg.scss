@@ -1,0 +1,26 @@
+@mixin icon-inside(
+  $abs: true,
+  $color: font,
+  $position: 1,
+  $size: $inuit-global-spacing-unit-large
+) {
+  @if ($abs) {
+    position: relative;
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  line-height: $size;
+
+  svg {
+    width: $size;
+    height: $size;
+  }
+
+  path {
+    fill: color-var($color, $position);
+  }
+}

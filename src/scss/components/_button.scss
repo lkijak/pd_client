@@ -1,0 +1,259 @@
+/* ==========================================================================
+   #BUTTONS
+   ========================================================================== */
+
+/**
+ * This is an example component. Extend inuitcss by building your own components
+ * that make up your UI. Component classes are prefixed with a `c-`.
+ */
+
+/**
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ */
+
+.c-button {
+  display: inline-block;
+  /* [1] */
+  vertical-align: middle;
+  /* [2] */
+  font: inherit;
+  /* [3] */
+  text-align: center;
+  /* [4] */
+  margin: $inuit-global-spacing-unit-micro 0;
+  /* [4] */
+  cursor: pointer;
+  /* [5] */
+  padding: $inuit-global-spacing-unit-small $inuit-global-spacing-unit-large;
+  transition: $global-transition;
+  @include inuit-font-size($inuit-font-size-h4);
+  text-decoration: none;
+  border: $global-border solid color-var(border);
+  border-radius: $global-radius;
+  color: color-var(font, 3);
+  position: relative;
+  font-weight: 500;
+
+  &:before {
+    @include absolutePseudoContent();
+    @include absPosition100();
+    background: color-var(bg, 8);
+    opacity: 0;
+    @include transition();
+    pointer-events: none;
+  }
+  .c-label--file:hover &,
+  &:hover,
+  &:active,
+  &:focus {
+    transition: $global-transition;
+    text-decoration: none;
+    &:before {
+      opacity: 0.2;
+    }
+  }
+
+  /* Style variants
+   ========================================================================== */
+
+  &--primary {
+    border-color: color-var(border, 2);
+    background-color: color-var(bg, 2);
+    color: color-var(font, 3);
+
+    .c-icon * {
+      fill: color-var(font, 3) !important;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: color-var(font, 3);
+    }
+
+    &.c-button--blured {
+      box-shadow: 0 0 30px 0 rgba(color-var(bg, 2), 0.75);
+    }
+  }
+
+  &--secondary {
+    border-color: color-var(border, 3);
+    background-color: color-var(bg, 3);
+    color: color-var(font, 2) !important;
+
+    .c-icon * {
+      fill: color-var(font, 2) !important;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: color-var(font, 2);
+    }
+
+    &.c-button--blured {
+      box-shadow: 0 0 30px 0 rgba(color-var(bg, 3), 0.75);
+    }
+  }
+
+  &--tertiary {
+    border-color: color-var(border, 4);
+    background-color: color-var(bg, 4);
+    color: color-var(font, 2) !important;
+
+    .c-icon * {
+      fill: color-var(font, 2) !important;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: color-var(font, 2);
+      background-color: color-var(bg, 4);
+    }
+
+    &.c-button--blured {
+      box-shadow: 0 0 30px 0 rgba(color-var(bg, 4), 0.75);
+    }
+  }
+  &--error {
+    border-color: color-var(error);
+    background-color: color-var(error);
+
+    &.c-button--blured {
+      box-shadow: 0 0 30px 0 rgba(color-var(error, 1), 0.75);
+    }
+  }
+  &--success {
+    border-color: color-var(success);
+    background-color: color-var(success);
+
+    &.c-button--blured {
+      box-shadow: 0 0 30px 0 rgba(color-var(success, 1), 0.75);
+    }
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &--fixed {
+    min-width: $inuit-global-baseline * 50;
+  }
+
+  &--blured {
+    box-shadow: 0 0 30px 0;
+  }
+
+  &--alternative {
+    transition: $global-transition;
+    background-color: color-var(bg, 1);
+    color: color-var(font);
+    &:before {
+      display: none;
+    }
+
+    &.c-button--primary {
+      color: color-var(font, 2);
+      .c-icon * {
+        fill: color-var(font, 2) !important;
+      }
+    }
+
+    &.c-button--secondary {
+      transition: $global-transition;
+      color: color-var(font, 2);
+      .c-icon * {
+        fill: color-var(font, 2) !important;
+      }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      transition: $global-transition;
+      color: color-var(font, 3);
+
+      &.c-button--primary {
+        color: color-var(font, 4) !important;
+        .c-icon * {
+          transition: $global-transition;
+          fill: color-var(font, 4) !important;
+        }
+      }
+
+      &.c-button--secondary {
+        color: color-var(font, 2) !important;
+        transition: $global-transition;
+        background-color: color-var(bg, 3);
+        .c-icon * {
+          transition: $global-transition;
+          fill: color-var(font, 2) !important;
+        }
+      }
+
+      &.c-button--tertiary {
+        color: color-var(bg, 4);
+        .c-icon * {
+          fill: color-var(bg, 4);
+        }
+      }
+      &.c-button--error {
+        color: color-var(error);
+        .c-icon * {
+          fill: color-var(error);
+        }
+      }
+      &.c-button--success {
+        color: color-var(success);
+        .c-icon * {
+          fill: color-var(success);
+        }
+      }
+    }
+  }
+
+  &--with-icon {
+    position: relative;
+    padding-left: $inuit-global-spacing-unit-huge;
+    padding-right: $inuit-global-spacing-unit-huge;
+
+    &-right {
+      .c-icon {
+        left: auto;
+        right: $inuit-global-spacing-unit-tiny;
+      }
+    }
+
+    .c-icon * {
+      fill: color-var(font, 3);
+    }
+
+    &.c-button--alternative {
+      .c-icon * {
+        fill: color-var(font);
+      }
+    }
+  }
+
+  /* Size variants
+   ========================================================================== */
+
+  &--small {
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+
+  &--large {
+    padding: 0.75rem 1.5rem;
+  }
+
+  &--tight {
+    width: max-content;
+  }
+}

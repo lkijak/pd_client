@@ -1,0 +1,131 @@
+/* ==========================================================================
+   #article
+   ========================================================================== */
+
+.c-article {
+  $self: &;
+  display: block;
+  position: relative;
+  background: color-var(bg);
+  text-decoration: none !important;
+  @include inuit-font-size($inuit-font-size-h5);
+
+  &:hover {
+    color: inherit;
+  }
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $inuit-global-spacing-unit;
+  }
+
+  &__date {
+    color: color-var(font, 2);
+  }
+
+  &__desc {
+    background: color-var(bg);
+    padding: $inuit-global-spacing-unit-large $inuit-global-spacing-unit;
+  }
+
+  &__excerpt {
+    margin-bottom: 0;
+  }
+
+  &__image {
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-bottom: 59.26%;
+    }
+
+    &-elem {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+  }
+
+  &--horizontal,
+  &--big {
+    display: flex;
+  }
+
+  &--horizontal {
+    #{$self}__desc,
+    #{$self}__image {
+      flex: 1;
+    }
+    #{$self}__image {
+      max-width: 270px;
+    }
+    #{$self}__desc {
+      padding: 0;
+      padding-left: $inuit-global-spacing-unit;
+    }
+  }
+
+  &--big {
+    #{$self}__desc {
+      flex: 7;
+      padding: $inuit-global-spacing-unit;
+      @include inuit-font-size($inuit-font-size-h4);
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+
+      &:after {
+        content: '';
+        flex: 0 0 100%;
+      }
+    }
+
+    #{$self}__meta,
+    #{$self}__content {
+      flex: 0 0 100%;
+    }
+
+    #{$self}__image {
+      flex: 5;
+      order: 2;
+
+      &:before {
+        padding-bottom: 100%;
+      }
+    }
+  }
+
+  &--promo {
+    text-align: center;
+
+    #{$self}__meta {
+      justify-content: center;
+    }
+  }
+
+  &--simple {
+    background: transparent;
+    @include inuit-font-size($inuit-font-size-h4);
+    padding: $inuit-global-spacing-unit-tiny 0;
+    border-bottom: $global-border solid color-var(border);
+
+    #{$self}__title {
+      margin-bottom: 0;
+    }
+    &:hover {
+      #{$self}__title {
+        color: color-var(font, 4);
+      }
+    }
+  }
+}

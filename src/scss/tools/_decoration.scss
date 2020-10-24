@@ -1,0 +1,31 @@
+@mixin line($size, $bottom: 0, $left: 0) {
+  position: relative;
+  &:after {
+    content: '';
+    width: $size;
+    height: 2px;
+    display: block;
+    position: absolute;
+    bottom: $bottom;
+    left: $left;
+    background: color-var(bg, 4);
+    transition: all 0.2s linear;
+  }
+}
+@mixin placeholder() {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::placeholder {
+    @content;
+  }
+}
