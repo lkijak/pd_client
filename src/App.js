@@ -28,7 +28,7 @@ function App() {
             
             {/* Log-in Buttons */}
             <div className="c-start__buttons u-position-relative">
-              <div className="c-button"><img class="c-icon" src={google}></img>Zaloguj z Google</div>
+              <a className="c-button" href="http://localhost:54676/Login/GoogleLogin"><img class="c-icon" src={google}></img>Zaloguj z Google</a>
             </div>
           </div>
         </div>
