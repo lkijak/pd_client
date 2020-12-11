@@ -8,7 +8,7 @@ class LifeGraph extends Component {
         const myChartRef = this.chartRef.current.getContext("2d");
         
         new Chart(myChartRef, {
-            type: 'radar',
+            type: 'polarArea',
             data: {
                 labels: ['Rozwój osobisty', 'Kariera', 'Finanse', 'Otoczenie', 'Partner', 'Rodzina', 'Wypoczynek', 'Zdrowie'],
                 datasets: [{
@@ -39,7 +39,7 @@ class LifeGraph extends Component {
                     }
                 },
                 legend: {
-                    display: false,
+                    display: true,
                     labels: {
                         fontColor: 'black'
                     }
