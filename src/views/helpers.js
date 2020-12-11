@@ -6,7 +6,7 @@ import axios from 'axios';
 /**
  * backend client variables
  */
-export const API_DOMAIN = `https://smarte-volution.azurewebsites.net`;
+export const API_DOMAIN = `http://localhost:54676`;
 export const googleLoginURL = `${API_DOMAIN}/Login/GoogleLogin`;
 
 

@@ -1,6 +1,6 @@
 import React from "react";
 import google from '../img/google.png';
-import {logIn, logInGoogle} from './helpers'
+import {logIn, logInGoogle, googleLoginURL} from './helpers'
 
 class Start extends React.Component {
     render () {
@@ -27,7 +27,7 @@ class Start extends React.Component {
                     
                     {/* Log-in Buttons */}
                     <div className="c-start__buttons u-position-relative">
-                        <a className="c-button" onClick={logIn}><img className="c-icon" src={google}></img>Zaloguj z Google</a>
+                        <a className="c-button" href={googleLoginURL}><img className="c-icon" src={google}></img>Zaloguj z Google</a>
                     </div>
                     </div>
                 </div>
