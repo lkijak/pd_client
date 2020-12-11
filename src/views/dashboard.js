@@ -6,14 +6,14 @@ import profilePicture from '../img/profile-picture.png';
 class Dashboard extends React.Component {
     render () {
         return (            
-            <section className="c-dashboard o-flex o-flex--wrap o-flex--space-between u-padding-none u-bg-color--6">
+            <section className="c-dashboard o-flex o-flex--wrap o-flex--space-between u-padding-none u-bg-color--6 o-flex--lock-top">
                 <div className="u-flex-12/12 u-padding-big u-padding-horizontal-great u-text--right u-text--smallest u-bg-color--6 u-font-color--3">
                     <a className="o-link u-margin-right-great">RODO</a>
                     <a className="o-link u-margin-right-great">Polityka prywatności</a>
                     <a className="o-link" onClick={logOut}>Wyloguj</a>
                 </div>
                 <div className="u-flex-3/12 u-padding-horizontal-big">
-                    <div className="c-card u-padding-great o-flex o-flex--wrap o-flex--centered-h">
+                    <div className="c-card u-padding-great o-flex o-flex--start o-flex--column">
                         <h3 className="u-text--center u-margin-bottom-tiny">Twoje życiowe cele</h3>
                         <p className="u-text--center u-text--smaller">Przeglądaj je codziennie, aby pamiętać<br></br>do czego dążysz i jak to osiągnąć</p>
                         <ul className="c-list u-flex-12/12 u-margin-bottom-none">
@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
                     </div>
                 </div>
                 <div className="u-flex-6/12 o-flex o-flex--centered-h">
-                    <div className="c-card u-padding-great o-flex o-flex--wrap o-flex--start">
+                    <div className="c-card u-padding-great o-flex o-flex--start o-flex--column">
                         <h3 className="u-text--left u-margin-bottom-tiny">Plan realizacji: Sprzedawać odzież własnej marki</h3>
                         <p className="u-text--left">Twój plan to gwarancja osiągnięcia zamierzonego celu. Przemyśl realizację zgodnie z metodologią SMART, następnie wypisz wszystkie kroki i zacznij działać.</p>
                         <ul className="c-list u-flex-12/12 u-margin-bottom-none">
