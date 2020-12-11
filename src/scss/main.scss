@@ -51,6 +51,7 @@
 // @import 'components/form';
 // @import 'components/harmony';
 @import 'components/headings';
+@import 'components/navigation';
 // @import 'components/input';
 // @import 'components/label';
 // @import 'components/radio';
@@ -137,7 +138,89 @@ html, body {
     right: -2px;
     background: rgba(0,0,0,0.8);
     line-height: 1;
+    border-radius: 4px; 
+}
+
+.c-nav {
+    &__picture {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+} 
+
+.c-card {
     border-radius: 4px;
+    height: auto;
+    width: 100%;
+    background: color-var(bg, 2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+
+    &--info {
+        background: white;
+    }
+}
+
+.c-list {
+    margin: 0 !important;
+
+    &__item {
+        display: block;
+        background: white;
+        padding: 7px 15px;
+        border-radius: 3px;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+        cursor: pointer;
+
+        &:last-of-type{
+            margin-bottom: 0 !important;
+        }
+    }
+}
+
+.o-link {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}  
+
+.c-dashboard {
+    min-height: 100vh;
+}
+
+.c-life-circle {
+    position: relative;
+    height: 300px;
+    width: 300px;
+
+    svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+    }
+
+    @for $i from 1 through 8 {
+        svg:nth-of-type(#{$i}) {
+          transform: rotate(#{$i*45}deg);
+        }
+    }
+} 
+
+.c-chart {
+    &--life-graph {
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+            margin: auto !important;
+            font-weight: bold;
+        }
+    }
+}
+
+.u-margin-auto { 
+    margin: auto;
 }
 
 @import 'utilities/_align';
