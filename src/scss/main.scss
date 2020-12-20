@@ -83,7 +83,7 @@ html, body {
         background-position: 0%;
         background-size: 200% !important;
         background: linear-gradient(to right, color-var(func, 4) 50%, color-var(bg, 2) 50%);
-        animation: fill-in-bg 1s cubic-bezier(0.25,0.1,0.25,1) both;
+        animation: fill-in-bg 1.75s cubic-bezier(0.25,0.1,0.25,1) both;
         animation-delay: 0s;
     }
 
@@ -95,7 +95,7 @@ html, body {
         right: auto;
         width: max-content;
         box-shadow: 10px 10px 25px rgba(0,0,0,0.4);
-        animation: fade-in-top 1.5s cubic-bezier(0.25,0.1,0.25,1) both;
+        animation: fade-in-top 950ms ease-in-out both;
         animation-delay: 0.2s;
     }
 
@@ -149,15 +149,67 @@ html, body {
     }
 } 
 
+@keyframes expand-card {
+    0% {
+        background-position: right bottom;
+    }
+    
+    95% {
+        background-position: left bottom;
+    }
+    
+    100%  {
+        background-position: left bottom;
+    }
+}
+@keyframes expand-shadow {
+    0% {
+        box-shadow: 0 0 0 rgba(0,0,0,0.3); 
+    }
+
+    50% {
+        box-shadow: 0 0 0 rgba(0,0,0,0.3); 
+    }
+    
+    100%  {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+}
+
 .c-card {
     border-radius: 4px;
-    height: auto;
+    height: auto; 
+    opacity: 1;
     width: 100%;
-    background: color-var(bg, 2);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+    background: linear-gradient(to right, color-var(bg, 2) 50%, transparent 50%);
+    background-position: right bottom;
+    background-size: 200% 100%;
+    transition: all 1s ease-in-out;
+    animation: expand-card 350ms forwards cubic-bezier(0.25,0.1,0.25,1), expand-shadow 550ms cubic-bezier(0.25,0.1,0.25,1) 1000ms forwards;
 
     &--info {
-        background: white;
+        background: linear-gradient(to right, white 50%, transparent 50%);
+        background-position: right bottom;
+        background-size: 200% 100%;
+        transition: all 1s ease-in-out;
+        animation: expand-card 350ms forwards cubic-bezier(0.25,0.1,0.25,1), expand-shadow 550ms cubic-bezier(0.25,0.1,0.25,1) 1000ms forwards;
+    }
+
+    @for $i from 1 through 10 {
+        &:nth-of-type(#{$i}) {
+          animation-delay: #{$i*150+200}ms;
+        }
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    
+    to  {
+        opacity: 1;
     }
 }
 
@@ -165,15 +217,23 @@ html, body {
     margin: 0 !important;
 
     &__item {
-        display: block;
+        display: block; 
         background: white;
         padding: 7px 15px;
         border-radius: 3px;
         box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+        opacity: 0;
         cursor: pointer;
 
         &:last-of-type{
             margin-bottom: 0 !important;
+        }
+
+        animation: fadeIn 350ms cubic-bezier(0.25,0.1,0.25,1) forwards;
+        @for $i from 1 through 10 {
+            &:nth-of-type(#{$i}) {
+              animation-delay: #{$i*150+250}ms;
+            }
         }
     }
 }
