@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/smart-evolution/static/css/main.4386b1a9.chunk.css",
-    "main.js": "/smart-evolution/static/js/main.325a8b5c.chunk.js",
-    "main.js.map": "/smart-evolution/static/js/main.325a8b5c.chunk.js.map",
-    "runtime-main.js": "/smart-evolution/static/js/runtime-main.ad89808e.js",
-    "runtime-main.js.map": "/smart-evolution/static/js/runtime-main.ad89808e.js.map",
-    "static/js/2.e5c115fc.chunk.js": "/smart-evolution/static/js/2.e5c115fc.chunk.js",
-    "static/js/2.e5c115fc.chunk.js.map": "/smart-evolution/static/js/2.e5c115fc.chunk.js.map",
-    "index.html": "/smart-evolution/index.html",
-    "precache-manifest.75139a8cdd3bdf8780634977d147e5c8.js": "/smart-evolution/precache-manifest.75139a8cdd3bdf8780634977d147e5c8.js",
-    "service-worker.js": "/smart-evolution/service-worker.js",
-    "static/css/main.4386b1a9.chunk.css.map": "/smart-evolution/static/css/main.4386b1a9.chunk.css.map",
-    "static/js/2.e5c115fc.chunk.js.LICENSE.txt": "/smart-evolution/static/js/2.e5c115fc.chunk.js.LICENSE.txt",
-    "static/media/main.css": "/smart-evolution/static/media/bg-start.df07465d.jpg",
-    "static/media/google.png": "/smart-evolution/static/media/google.04c6109b.png"
+    "main.css": "/static/css/main.383bc6b3.chunk.css",
+    "main.js": "/static/js/main.7eb3eddf.chunk.js",
+    "main.js.map": "/static/js/main.7eb3eddf.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.2fa31ae5.js",
+    "runtime-main.js.map": "/static/js/runtime-main.2fa31ae5.js.map",
+    "static/js/2.e5c115fc.chunk.js": "/static/js/2.e5c115fc.chunk.js",
+    "static/js/2.e5c115fc.chunk.js.map": "/static/js/2.e5c115fc.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.3195457a553039ba1f929ecf4baf93e9.js": "/precache-manifest.3195457a553039ba1f929ecf4baf93e9.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.383bc6b3.chunk.css.map": "/static/css/main.383bc6b3.chunk.css.map",
+    "static/js/2.e5c115fc.chunk.js.LICENSE.txt": "/static/js/2.e5c115fc.chunk.js.LICENSE.txt",
+    "static/media/main.css": "/static/media/bg-start.df07465d.jpg",
+    "static/media/google.png": "/static/media/google.04c6109b.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.ad89808e.js",
+    "static/js/runtime-main.2fa31ae5.js",
     "static/js/2.e5c115fc.chunk.js",
-    "static/css/main.4386b1a9.chunk.css",
-    "static/js/main.325a8b5c.chunk.js"
+    "static/css/main.383bc6b3.chunk.css",
+    "static/js/main.7eb3eddf.chunk.js"
   ]
 }
