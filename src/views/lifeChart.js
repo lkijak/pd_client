@@ -22,7 +22,7 @@ class LifeGraph extends Component {
                         Math.floor(Math.random() * 5) + 1,
                         Math.floor(Math.random() * 5) + 1,
                     ],
-                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    backgroundColor: ['rgba(255,61,0 ,1)', 'rgba(255,171,0 ,1)', 'rgba(174,234,0 ,1)', 'rgba(0,200,83 ,1)', 'rgba(0,184,212 ,1)', 'rgba(41,98,255 ,1)', 'rgba(98,0,234 ,1)', 'rgba(213,0,0 ,1)']
                 }]
             },
             options: {
