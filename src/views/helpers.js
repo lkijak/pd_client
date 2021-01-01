@@ -20,7 +20,7 @@ import axios from 'axios';
  */
 export const API_DOMAIN = `https://smart-evolution.azurewebsites.net`;
 export const googleLoginURL = `${API_DOMAIN}/Login/GoogleLogin`;
-export const clientId = '617246850621-95f9qhmehd380g2df86pjhrqc84n8nij.apps.googleusercontent.com';
+export const clientId = '850157239961-g16l5ifn3btccslaogvpicf7umrbrubd.apps.googleusercontent.com';
 
 export const reportSuccess = response => {
   console.info(response); // eslint-disable-line
