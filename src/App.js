@@ -1,17 +1,33 @@
 import React from 'react';
 import './scss/main.css';
-import {logged} from './views/helpers'
+import { reportSuccess, reportError, reportLogout, reportLoading } from "./views/helpers";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 // views
 import Start from './views/start';
 import Dashboard from './views/dashboard';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      { logged ? <Dashboard /> : <Start /> }
-    </div>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Start />
+          </Route>
+          <Route exact path="/dashboard/">
+            <Dashboard />
+          </Route>
+        </Switch>
+      </Router>
+    </div> 
   );
 }
+
 
 export default App;

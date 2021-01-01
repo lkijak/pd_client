@@ -1,7 +1,7 @@
 import React from "react";
-import {logOut, userName} from './helpers';
 import LifeGraph from './lifeChart';
-import profilePicture from '../img/profile-picture.png';
+import { GoogleLogout } from 'react-google-login';
+import { clientId, reportLogout } from './helpers';
 
 class Dashboard extends React.Component {
     render () {
@@ -10,7 +10,15 @@ class Dashboard extends React.Component {
                 <div className="u-flex-12/12 u-padding-big u-padding-horizontal-great u-text--right u-text--smallest u-bg-color--6 u-font-color--3">
                     <a className="o-link u-margin-right-great">RODO</a>
                     <a className="o-link u-margin-right-great">Polityka prywatności</a>
-                    <a className="o-link" onClick={logOut}>Wyloguj</a>
+                    <GoogleLogout
+                        clientId={clientId}
+                        buttonText="Wyloguj"
+                        onLogoutSuccess={reportLogout}
+                        render={renderProps => (
+                            <a className="o-link" onClick={renderProps.onClick} disabled={renderProps.disabled}>Wyloguj</a>
+                        )}
+                    >
+                    </GoogleLogout>
                 </div>
                 <div className="u-flex-3/12 u-padding-horizontal-big">
                     <div className="c-card u-padding-great o-flex o-flex--start o-flex--column">
@@ -43,8 +51,8 @@ class Dashboard extends React.Component {
                 </div>
                 <div className="u-flex-3/12 u-padding-horizontal-big">
                     <div className="c-card u-padding-big o-flex o-flex--centered-v u-margin-bottom-big">
-                        <img className="c-nav__picture u-margin-right" src={profilePicture}></img>
-                        <strong>{userName}</strong>
+                        <img className="c-nav__picture u-margin-right" src={'s'}></img>
+                        <strong>{'s'}</strong>
                     </div>
 
                     <div className="c-card c-card--info c-card--white u-padding-big o-flex o-flex o-flex--wrap">

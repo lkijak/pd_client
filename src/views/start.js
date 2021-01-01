@@ -1,12 +1,6 @@
 import React from "react";
-// import google from '../img/google.png';
-// import {logIn, logInGoogle, GoogleLogin} from './helpers'
 import { GoogleLogin } from 'react-google-login';
-
-const responseGoogle = (response) => {
-    console.info(response);
-}
-
+import { responseGoogle, clientId, reportSuccess, reportError } from './helpers';
 
 class Start extends React.Component {
     render () {
@@ -34,11 +28,12 @@ class Start extends React.Component {
                         {/* Log-in Buttons */}
                         <div className="c-start__buttons u-position-relative">
                             <GoogleLogin
-                                clientId="850157239961-g16l5ifn3btccslaogvpicf7umrbrubd.apps.googleusercontent.com"
-                                buttonText="Login"
-                                onSuccess={responseGoogle}
-                                onFailure={responseGoogle}
+                                clientId={clientId}
+                                buttonText="Zaloguj z Google"
+                                onSuccess={reportSuccess}
+                                onFailure={reportError}
                                 cookiePolicy={'single_host_origin'}
+                                isSignedIn={true}
                             />
                         </div>
                     </div>
