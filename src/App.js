@@ -15,16 +15,16 @@ import Dashboard from './views/dashboard';
 const App = () => {
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Start />
-          </Route>
-          <Route exact path="/dashboard/">
-            <Dashboard />
-          </Route>
-        </Switch>
-      </Router>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Start />
+            </Route>
+              <Route exact path="/dashboard/">
+                <Dashboard />
+              </Route>
+          </Switch>
+        </Router>
     </div> 
   );
 }

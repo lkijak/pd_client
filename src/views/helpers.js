@@ -24,6 +24,7 @@ export const clientId = '850157239961-g16l5ifn3btccslaogvpicf7umrbrubd.apps.goog
 
 export const reportSuccess = response => {
   console.info(response); // eslint-disable-line
+  localStorage.setItem('user', JSON.stringify(response));
   if(window.location.href != '/dashboard/'){window.location.href = '/dashboard/'}
 }
 
@@ -37,5 +38,8 @@ export const reportLoading = () => {
 }
 
 export const reportLogout = () => {
-  console.info('logout') // eslint-disable-line
+  localStorage.clear('user');
+  if(window.location.href !== '/'){window.location.href = '/'}
 }
+
+export const user = JSON.parse(localStorage.getItem('user'));

@@ -1,7 +1,8 @@
 import React from "react";
 import LifeGraph from './lifeChart';
 import { GoogleLogout } from 'react-google-login';
-import { clientId, reportLogout } from './helpers';
+import { clientId, reportLogout, user } from './helpers';
+
 
 class Dashboard extends React.Component {
     render () {
@@ -51,14 +52,14 @@ class Dashboard extends React.Component {
                 </div>
                 <div className="u-flex-3/12 u-padding-horizontal-big">
                     <div className="c-card u-padding-big o-flex o-flex--centered-v u-margin-bottom-big">
-                        <img className="c-nav__picture u-margin-right" src={'s'}></img>
-                        <strong>{'s'}</strong>
+                        <img className="c-nav__picture u-margin-right" src={user.profileObj.imageUrl}></img>
+                        <strong>{user.profileObj.name}</strong>
                     </div>
 
                     <div className="c-card c-card--info c-card--white u-padding-big o-flex o-flex o-flex--wrap">
                         <h3 className="o-flex u-text--left u-margin-bottom-tiny">Koło życia</h3>
                         <div className="o-flex" style={{margin: '30px auto'}}>
-                                <LifeGraph/>
+                            <LifeGraph/>
                         </div>
                     </div>
                 </div>
