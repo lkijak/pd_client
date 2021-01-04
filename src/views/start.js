@@ -1,6 +1,6 @@
 import React from "react";
 import { GoogleLogin } from 'react-google-login';
-import { responseGoogle, clientId, reportSuccess, reportError } from './helpers';
+import { clientId, reportSuccess, reportError } from './helpers';
 
 class Start extends React.Component {
     render () {
