@@ -26,6 +26,7 @@ class LifeGraph extends Component {
         for (let i = 0; i < dataset.length; i=i+3) {
           let temp = parseInt(dataset[i].answerText) + parseInt(dataset[i+1].answerText) + parseInt(dataset[i+2].answerText);
           temp = temp/3;
+          temp = parseFloat(temp.toFixed(2))
           data = [...data, temp];
         }
         this.setState({data: data});
