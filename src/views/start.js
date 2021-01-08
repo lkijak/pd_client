@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import { GoogleLogin } from 'react-google-login';
-import { clientId, reportSuccess, reportError } from './helpers';
+import { googleClientId, reportSuccess, reportError, user } from './helpers';
 
-class Start extends React.Component {
-    render () {
+class Start extends Component {  
+
+    render() {
         return (            
             <section className="o-section o-section--full c-start o-flex o-flex--centered o-flex--grids o-flex--wrap u-padding-none">
                 <div className="c-start__image o-flex__item u-flex-7/12"></div>
@@ -28,7 +29,7 @@ class Start extends React.Component {
                         {/* Log-in Buttons */}
                         <div className="c-start__buttons u-position-relative">
                             <GoogleLogin
-                                clientId={clientId}
+                                clientId={googleClientId}
                                 buttonText="Zaloguj z Google"
                                 onSuccess={reportSuccess}
                                 onFailure={reportError}
@@ -43,4 +44,5 @@ class Start extends React.Component {
     }
 }
 
-export default Start;
+export default Start
+

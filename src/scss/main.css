@@ -1038,6 +1038,7 @@ html, body {
   border-radius: 50%;
   -webkit-box-shadow: 0 5px 7px rgba(0, 0, 0, 0.3);
           box-shadow: 0 5px 7px rgba(0, 0, 0, 0.3);
+  border: 2px solid #d500004f;
 }
 
 @-webkit-keyframes expand-card {
@@ -1188,6 +1189,29 @@ html, body {
   }
 }
 
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fading-out {
+  -webkit-animation: fadeOut 500ms ease-in-out both !important;
+          animation: fadeOut 500ms ease-in-out both !important;
+}
+
 .c-list {
   margin: 0 !important;
 }
@@ -1333,6 +1357,51 @@ html, body {
 
 .u-margin-auto {
   margin: auto;
+}
+
+.multi-step-body {
+  -webkit-box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.4);
+          box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.4);
+  background: white;
+  width: 600px;
+  text-align: center;
+  height: 400px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto !important;
+  -webkit-animation: fade-in 0.35s ease-in both;
+          animation: fade-in 0.35s ease-in both;
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
+  z-index: 9999999;
+}
+
+.multi-step-nav {
+  display: none !important;
+}
+
+.survey-box {
+  -webkit-animation: fadeIn 0.35s ease-in both;
+          animation: fadeIn 0.35s ease-in both;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.85);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999998;
+  -webkit-animation: fade-in 0.35s ease-in both;
+          animation: fade-in 0.35s ease-in both;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
 }
 
 /* ==========================================================================

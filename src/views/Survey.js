@@ -1,193 +1,190 @@
 import React, { Component } from 'react'
+import axios from 'axios';
 import FormSurvey from './FormSurvey';
+import MultiSteps from "multi-step-form-ui";
+import { getUsername, API_DOMAIN } from "./helpers";
 
 export class Survey extends Component {
-    state = {
-        step: 1,
-        survey: [
-            // Rozwój osobisty
-            {
-                questionID: 1,
-                question: `Czy masz plan na siebie?`,
-                answer: null
-            },
-            {
-                questionID: 2,
-                question: `Czy inwestujesz w swój rozwój?`,
-                answer: null
-            },
-            {
-                questionID: 3,
-                question: `Czy regularnie czytasz książki?`,
-                answer: null
-            },
+  state = {
+    survey: [
+      // Rozwój osobisty
+      {
+        questionID: 1,
+        question: `Czy masz plan na siebie?`,
+      },
+      {
+        questionID: 2,
+        question: `Czy inwestujesz w swój rozwój?`,
+      },
+      {
+        questionID: 3,
+        question: `Czy regularnie czytasz książki?`,
+      },
 
-            // Kariera
-            {
-                questionID: 4,
-                question: `Czy obecna praca daje Ci satysfakcję?`,
-                answer: null
-            },
-            {
-                questionID: 5,
-                question: `Czy lubisz swoją pracę?`,
-                answer: null
-            },
-            {
-                questionID: 6,
-                question: `Czy praca pozwala Ci się rozwijać?`,
-                answer: null
-            },
+      // Kariera
+      {
+        questionID: 4,
+        question: `Czy obecna praca daje Ci satysfakcję?`,
+      },
+      {
+        questionID: 5,
+        question: `Czy lubisz swoją pracę?`,
+      },
+      {
+        questionID: 6,
+        question: `Czy praca pozwala Ci się rozwijać?`,
+      },
 
-            // Finanse
-            {
-                questionID: 7,
-                question: `Czy jesteś zadowolony z poziomu dochodu?`,
-                answer: null
-            },
-            {
-                questionID: 8,
-                question: `Czy masz zabezpieczenie finansowe na kilka miesięcy bez pracy?`,
-                answer: null
-            },
-            {
-                questionID: 9,
-                question: `Czy wystarcza Ci na życie i podstawowe rzeczy?`,
-                answer: null
-            },
+      // Finanse
+      {
+        questionID: 7,
+        question: `Czy jesteś zadowolony z poziomu dochodu?`,
+      },
+      {
+        questionID: 8,
+        question: `Czy masz zabezpieczenie finansowe na kilka miesięcy bez pracy?`,
+      },
+      {
+        questionID: 9,
+        question: `Czy wystarcza Ci na życie i podstawowe rzeczy?`,
+      },
 
-            // Otoczenie
-            {
-                questionID: 10,
-                question: `Czy jesteś zadowolony z miejsca zamieszkania, stanu mieszkania?`,
-                answer: null
-            },
-            {
-                questionID: 11,
-                question: `Czy lubisz swoje otoczenie?`,
-                answer: null
-            },
-            {
-                questionID: 12,
-                question: `Czy otoczenie zapewnia Ci poczucie bezpieczeństwa?`,
-                answer: null
-            },
+      // Otoczenie
+      {
+        questionID: 10,
+        question: `Czy jesteś zadowolony z miejsca zamieszkania, stanu mieszkania?`,
+      },
+      {
+        questionID: 11,
+        question: `Czy lubisz swoje otoczenie?`,
+      },
+      {
+        questionID: 12,
+        question: `Czy otoczenie zapewnia Ci poczucie bezpieczeństwa?`,
+      },
 
-            // Partner, małżonek
-            {
-                questionID: 13,
-                question: `Czy jesteś szczęśliwy w obecnym związku?`,
-                answer: null
-            },
-            {
-                questionID: 14,
-                question: `Czy partner jest dla Ciebie wsparciem?`,
-                answer: null
-            },
-            {
-                questionID: 15,
-                question: `Czy ufacie sobie?`,
-                answer: null
-            },
+      // Partner, małżonek
+      {
+        questionID: 13,
+        question: `Czy jesteś szczęśliwy w obecnym związku?`,
+      },
+      {
+        questionID: 14,
+        question: `Czy partner jest dla Ciebie wsparciem?`,
+      },
+      {
+        questionID: 15,
+        question: `Czy ufacie sobie?`,
+      },
 
-            // Rodzina i przyjaciele
-            {
-                questionID: 16,
-                question: `Czy masz zaufane grono przyjaciół?`,
-                answer: null
-            },
-            {
-                questionID: 17,
-                question: `Czy możesz polegać na rodzinnie i przyjaciołach?`,
-                answer: null
-            },
-            {
-                questionID: 18,
-                question: `Czy lubisz spędzać czas z rodziną?`,
-                answer: null
-            },
+      // Rodzina i przyjaciele
+      {
+        questionID: 16,
+        question: `Czy masz zaufane grono przyjaciół?`,
+      },
+      {
+        questionID: 17,
+        question: `Czy możesz polegać na rodzinnie i przyjaciołach?`,
+      },
+      {
+        questionID: 18,
+        question: `Czy lubisz spędzać czas z rodziną?`,
+      },
 
-            // Wypoczynek i rozrywka
-            {
-                questionID: 19,
-                question: `Czy masz czas na swoje hobby i zainteresowania?`,
-                answer: null
-            },
-            {
-                questionID: 20,
-                question: `Czy budzisz się wypoczęty?`,
-                answer: null
-            },
-            {
-                questionID: 21,
-                question: `Czy wychodzisz z domu i odpoczywasz np. w parku, lesie?`,
-                answer: null
-            },
+      // Wypoczynek i rozrywka
+      {
+        questionID: 19,
+        question: `Czy masz czas na swoje hobby i zainteresowania?`,
+      },
+      {
+        questionID: 20,
+        question: `Czy budzisz się wypoczęty?`,
+      },
+      {
+        questionID: 21,
+        question: `Czy wychodzisz z domu i odpoczywasz np. w parku, lesie?`,
+      },
 
-            // Zdrowie i sprawność fiz
-            {
-                questionID: 22,
-                question: `Czy masz jakieś dolegliwości, choroby przewlekłe?`,
-                answer: null
-            },
-            {
-                questionID: 23,
-                question: `Czy robisz profilaktyczne badania?`,
-                answer: null
-            },
-            {
-                questionID: 24,
-                question: `Czy uprawiasz sport, ćwiczenia fizyczne, regularnie?`,
-                answer: null
-            },
-        ]
-    }
+      // Zdrowie i sprawność fiz
+      {
+        questionID: 22,
+        question: `Czy masz jakieś dolegliwości, choroby przewlekłe?`,
+      },
+      {
+        questionID: 23,
+        question: `Czy robisz profilaktyczne badania?`,
+      },
+      {
+        questionID: 24,
+        question: `Czy uprawiasz sport, ćwiczenia fizyczne, regularnie?`,
+      },
+    ],
+    answers: []
+  }
 
-    // Proceed to next step
-    nextStep = () => {
-        const {step} = this.state;
-        this.setState({
-            step: step + 1 
-        });
-    }
-    
-    // Go back to prev step
-    prevStep = () => {
-        const {step} = this.state;
-        this.setState({
-            step: step - 1 
-        });
-    }
+  removeSurvey = () => {
+    const surContent = document.querySelector(".survey-content");
+    const survey = document.querySelector("#survey");
+    surContent.classList.add('fading-out');
+    survey.classList.add('fading-out');
+    setTimeout(()=>{
+      surContent.remove();
+      survey.remove();
+      window.location.reload();
+    }, 500);
+  }
 
-    handleChange = input => e => {
-        this.setState({
-            [input]: e.target.value
-        });
-    }
+  submitForm = () => {
+    axios.post(`${API_DOMAIN}/Survey/UserResponse`, {
+      surveyName: "Life_Circle",
+      userName: getUsername(),
+      userResponseQuestionAndAnswerViewModels: this.state.answers
+    },
+      {
+        'Content-Type': 'application/json'
+      })
+      .then((response) => {
+          console.info("Wysłano ankietę. Następuje zamknięcie ankiety.");
+          this.removeSurvey();
+      })
+      .catch((error) => {
+        console.error("Błąd wysyłki ankiety.", error);
+      });
+  }
 
+  handleChange = (question, answer) => {
+    this.setState({
+      answers: [...this.state.answers, {
+        questionText: question,
+        answerText: answer
+      }]
+    });
+  }
 
-    render() {
-        const {step, survey} = this.state;
+  render() {
+    return (
+      <div id="survey" className="overlay">
+        <MultiSteps>
+          {(() => {
+            const steps = [];
 
-        switch (step) {
-            for (let i = 1; i <= survey.length; i++) {
-                case i:
-                    return (
-                        <FormSurvey 
-                            nextStep={this.nextStep} 
-                            handleChange={this.handleChange}
-                            question={survey[i].question}
-                        />
-                    )
+            for (let i = 0; i < this.state.survey.length; i++) {
+              steps.push(
+                <FormSurvey 
+                  key={this.state.survey[i].questionID}
+                  question={this.state.survey[i].question}
+                  action={this.handleChange}
+                  lastindex={this.state.survey.length}
+                  submitForm={this.submitForm}
+                />);
             }
-        }
 
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+            return steps;
+          })()}
+        </MultiSteps>
+      </div>
+    )
+  }
 }
 
-export default survey
+export default Survey
