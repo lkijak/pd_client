@@ -39,6 +39,6 @@ export class FormSurvey extends Component {
             </Box>
         )
     }
-}
+} 
 
 export default FormSurvey

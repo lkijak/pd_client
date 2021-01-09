@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import FormSurvey from './FormSurvey';
 import MultiSteps from "multi-step-form-ui";
-import { getUsername, API_DOMAIN } from "./helpers";
+import { getUsername, API_DOMAIN } from "../helpers";
 
 export class Survey extends Component {
   state = {
@@ -185,6 +185,6 @@ export class Survey extends Component {
       </div>
     )
   }
-}
+} 
 
 export default Survey

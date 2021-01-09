@@ -1212,6 +1212,23 @@ html, body {
           animation: fadeOut 500ms ease-in-out both !important;
 }
 
+.fadeOnStart {
+  opacity: 0;
+  -webkit-animation: fadeIn 350ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+          animation: fadeIn 350ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  -webkit-animation-delay: 300ms;
+          animation-delay: 300ms;
+}
+
+.light-shadow {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+}
+
+.__react_component_tooltip {
+  max-width: 400px !important;
+}
+
 .c-list {
   margin: 0 !important;
 }

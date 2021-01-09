@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { getUsername, API_DOMAIN } from "./helpers";
+import { getUsername, API_DOMAIN } from "../helpers";
 import Chart from "chart.js";
-
 
 class LifeGraph extends Component {
   chartRef = React.createRef();
@@ -43,7 +42,7 @@ class LifeGraph extends Component {
       const myChartRef = this.chartRef.current.getContext("2d");
 
       Chart.Legend.prototype.afterFit = function () {
-        this.height = this.height + 30;
+        this.height = this.height + 20;
       };
 
       new Chart(myChartRef, {
@@ -106,6 +105,6 @@ class LifeGraph extends Component {
       </div>
     )
   }
-}
+} 
 
 export default LifeGraph;
