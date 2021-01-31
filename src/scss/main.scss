@@ -352,6 +352,11 @@ html, body {
     animation-delay: 1s;
 }
 
+.done {
+    text-decoration: line-through;
+    background-color: #acacac;
+}
+
 
 @import 'utilities/_align';
 @import 'utilities/_animations';

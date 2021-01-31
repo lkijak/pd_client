@@ -18,9 +18,9 @@ export class SubTasks extends Component {
                         <li className="c-list__item">Nawiązać znajomość z projektantem odzieży</li>
                         <li className="c-list__item">Nawiązać znajomość z dystrybutorem</li>
                         <li className="c-list__item">Wyszukać w internecie fabryki odzieży</li>
-                        <li className="c-list__item">Wykonać telefon dla zorientowania w kosztach produkcji</li>
-                        <li className="c-list__item">Kolejny krok</li>
-                        <li className="c-list__item">Kolejny krok</li>
+                        <li className="c-list__item done">Wykonać telefon dla zorientowania w kosztach produkcji</li>
+                        <li className="c-list__item done">Kolejny krok</li>
+                        <li className="c-list__item done">Kolejny krok</li>
                     </ul>
                 </div>
             </div>

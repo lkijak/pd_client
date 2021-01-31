@@ -4,6 +4,7 @@ import Box from '@material-ui/core/Box';
 
 
 export class TextInput extends Component {
+    
     render() {
         return (
             <Box mb={2.5}>
@@ -16,6 +17,7 @@ export class TextInput extends Component {
                     background="white"
                     color="#6200ea"
                     margin="dense"
+                    onKeyDown={this.props.createTask}
                 />
             </Box>
         )

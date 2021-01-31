@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { getUsername, API_DOMAIN } from "../helpers";
 import Chart from "chart.js";
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
 
 class LifeGraph extends Component {
   chartRef = React.createRef();
@@ -102,6 +104,12 @@ class LifeGraph extends Component {
           id="myChart"
           ref={this.chartRef}
         />
+        <Box mt={1}>
+          <div className="o-flex o-flex--wrap o-flex--space-between">
+            <Button variant="contained" color="primary">Nowy test</Button>
+            <Button variant="contained" color="primary">Historia</Button>
+          </div>
+        </Box>
       </div>
     )
   }
