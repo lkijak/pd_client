@@ -3,10 +3,10 @@ import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 
 
-export class TextInput extends Component {
+export class TextSubInput extends Component {
 
     createTask = (e) => {
-        this.props.createTask(e);
+        this.props.createTask(e, this.props.parentId);
         if (e.key === 'Enter') {
             e.target.value = "";
         }
@@ -31,4 +31,4 @@ export class TextInput extends Component {
     }
 }
 
-export default TextInput
+export default TextSubInput

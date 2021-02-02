@@ -1189,6 +1189,24 @@ html, body {
   }
 }
 
+@-webkit-keyframes fadeIn-half {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+
+@keyframes fadeIn-half {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+
 @-webkit-keyframes fadeOut {
   from {
     opacity: 1;
@@ -1242,68 +1260,31 @@ html, body {
           box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   opacity: 0;
   cursor: pointer;
-  -webkit-animation: fadeIn 350ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-          animation: fadeIn 350ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  -webkit-animation: fadeIn-half 450ms ease forwards;
+          animation: fadeIn-half 450ms ease forwards;
+  -webkit-animation-delay: 300ms;
+          animation-delay: 300ms;
 }
 
 .c-list__item:last-of-type {
   margin-bottom: 0 !important;
 }
 
-.c-list__item:nth-of-type(1) {
-  -webkit-animation-delay: 400ms;
-          animation-delay: 400ms;
-}
-
-.c-list__item:nth-of-type(2) {
-  -webkit-animation-delay: 550ms;
-          animation-delay: 550ms;
-}
-
-.c-list__item:nth-of-type(3) {
-  -webkit-animation-delay: 700ms;
-          animation-delay: 700ms;
-}
-
-.c-list__item:nth-of-type(4) {
-  -webkit-animation-delay: 850ms;
-          animation-delay: 850ms;
-}
-
-.c-list__item:nth-of-type(5) {
-  -webkit-animation-delay: 1000ms;
-          animation-delay: 1000ms;
-}
-
-.c-list__item:nth-of-type(6) {
-  -webkit-animation-delay: 1150ms;
-          animation-delay: 1150ms;
-}
-
-.c-list__item:nth-of-type(7) {
-  -webkit-animation-delay: 1300ms;
-          animation-delay: 1300ms;
-}
-
-.c-list__item:nth-of-type(8) {
-  -webkit-animation-delay: 1450ms;
-          animation-delay: 1450ms;
-}
-
-.c-list__item:nth-of-type(9) {
-  -webkit-animation-delay: 1600ms;
-          animation-delay: 1600ms;
-}
-
-.c-list__item:nth-of-type(10) {
-  -webkit-animation-delay: 1750ms;
-          animation-delay: 1750ms;
+.c-list__item:hover {
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  opacity: 1 !important;
 }
 
 .o-link {
   cursor: pointer;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
+}
+
+.list-scrolling {
+  max-height: 500px;
+  overflow-y: scroll;
 }
 
 .c-dashboard {

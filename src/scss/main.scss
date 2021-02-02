@@ -215,6 +215,16 @@ html, body {
     }
 }
 
+@keyframes fadeIn-half {
+    from {
+        opacity: 0;
+    }
+    
+    to  {
+        opacity: 0.9;
+    }
+}
+
 @keyframes fadeOut {
     from {
         opacity: 1;
@@ -259,11 +269,12 @@ html, body {
             margin-bottom: 0 !important;
         }
 
-        animation: fadeIn 350ms cubic-bezier(0.25,0.1,0.25,1) forwards;
-        @for $i from 1 through 10 {
-            &:nth-of-type(#{$i}) {
-              animation-delay: #{$i*150+250}ms;
-            }
+        animation: fadeIn-half 450ms ease forwards;
+        animation-delay: 300ms;
+
+        &:hover {
+            transition: all 200ms ease-in-out;
+            opacity: 1 !important;
         }
     }
 }
@@ -272,6 +283,11 @@ html, body {
     cursor: pointer;
     transition: all 0.2s ease;
 }  
+
+.list-scrolling {
+    max-height: 500px;
+    overflow-y: scroll;
+}
 
 .c-dashboard {
     min-height: 100vh;

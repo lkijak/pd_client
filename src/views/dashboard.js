@@ -3,10 +3,9 @@ import axios from 'axios';
 import { user, getUsername, API_DOMAIN } from './helpers';
 import { Survey } from "./partials/Survey";
 import UserPanel from './partials/UserPanel';
-import MenuTop from './partials/MenuTop'
-import UserProfile from './partials/UserProfile'
-import MainTasks from './partials/MainTasks';
-import SubTasks from './partials/SubTasks';
+import MenuTop from './partials/MenuTop';
+import UserProfile from './partials/UserProfile';
+import TaskBoard from './partials/TaskBoard';
 
 class Dashboard extends Component {
 
@@ -98,8 +97,7 @@ class Dashboard extends Component {
       <UserPanel>
         <MenuTop />
         <UserProfile displayGraph={ this.state.displayGraph } />
-        <MainTasks />
-        <SubTasks />
+        <TaskBoard />
         {this.state.displaySurvey && <Survey />}
       </UserPanel>
     );
