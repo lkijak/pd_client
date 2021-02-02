@@ -64,11 +64,11 @@ export class TaskBoard extends Component {
               'Content-Type': 'application/json'
             })
             .then((response) => {
-              console.log("Wysłano dane do utworzenia głównego celu.", response);
+              console.log("Wysłano dane zaktualizowanego zadania i jego podrzędnych zadań.", response);
               this.getMainTasks();
             })
             .catch((error) => {
-              console.error("Błąd wysyłki danych do utworzenia celu.", error);
+              console.error("Błąd wysyłki danych zaktualizowanego zadania i jego podrzędnych zadań.", error);
             });
         }
       });
