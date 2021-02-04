@@ -19,6 +19,7 @@ export class UserProfile extends Component {
                     <div className="o-flex" style={{ margin: '0 auto 0 auto' }}>
                     {this.props.displayGraph ? <LifeGraph 
                         displaySurvey={this.props.displaySurvey}
+                        displayChartHistory={this.props.displayChartHistory}
                     /> : false}
                     </div>
                 </div>

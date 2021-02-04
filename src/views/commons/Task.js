@@ -8,7 +8,8 @@ export class Task extends Component {
         isArchived: null
     }
 
-    checkBoxOnClick = () => {
+    checkBoxOnClick = (e) => {
+        e.preventDefault();
         if(this.props.isMainTask){
             this.props.doneTask(this.props.id);
         } else {
@@ -16,7 +17,8 @@ export class Task extends Component {
         }
     }
 
-    archiveOnClick = () => {
+    archiveOnClick = (e) => {
+        e.preventDefault();
         this.setState({isArchived: true});
         if(this.props.isMainTask){
             this.props.archiveTask(this.props.id);
@@ -45,10 +47,10 @@ export class Task extends Component {
                     </div>
                     <div className="task-icons">
                         <DeleteOutlineIcon 
-                            onClick={this.archiveOnClick}
+                            onClick={(e) => {this.archiveOnClick(e)}}
                         />
                         <CheckCircleOutlineIcon 
-                            onClick={this.checkBoxOnClick}
+                            onClick={(e) => {this.checkBoxOnClick(e)}}
                         />
                     </div>
             </li>

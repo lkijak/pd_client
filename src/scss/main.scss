@@ -183,18 +183,18 @@ html, body {
     height: auto; 
     opacity: 1;
     width: 100%;
-    background: linear-gradient(to right, color-var(bg, 2) 50%, transparent 50%);
+    background: linear-gradient(to right, color-var(bg, 2) 100%, transparent 0%);
     background-position: right bottom;
-    background-size: 200% 100%;
+    background-size: 100%;
     transition: all 1s ease-in-out;
-    animation: expand-card 350ms forwards cubic-bezier(0.25,0.1,0.25,1), expand-shadow 550ms cubic-bezier(0.25,0.1,0.25,1) 1000ms forwards;
+    // animation: expand-card 350ms forwards cubic-bezier(0.25,0.1,0.25,1), expand-shadow 550ms cubic-bezier(0.25,0.1,0.25,1) 1000ms forwards;
 
     &--info {
-        background: linear-gradient(to right, white 50%, transparent 50%);
+        background: linear-gradient(to right, white 100%, transparent 0%);
         background-position: right bottom;
-        background-size: 200% 100%;
+        background-size: 100%;
         transition: all 1s ease-in-out;
-        animation: expand-card 350ms forwards cubic-bezier(0.25,0.1,0.25,1), expand-shadow 550ms cubic-bezier(0.25,0.1,0.25,1) 1000ms forwards;
+        // animation: expand-card 350ms forwards cubic-bezier(0.25,0.1,0.25,1), expand-shadow 550ms cubic-bezier(0.25,0.1,0.25,1) 1000ms forwards;
     }
 }
 
@@ -256,14 +256,14 @@ html, body {
         padding: 7px 15px;
         border-radius: 3px;
         box-shadow: 0 5px 5px rgba(0,0,0,0.3);
-        opacity: 0;
+        opacity: 1;
         cursor: pointer;
 
         &:last-of-type{
             margin-bottom: 0 !important;
         }
 
-        animation: fadeIn-half 450ms ease forwards;
+        // animation: fadeIn-half 450ms ease forwards;
         animation-delay: 300ms;
 
         &:hover {
@@ -448,6 +448,39 @@ html, body {
     overflow: hidden;
 }
 
+.overlay canvas {
+	width: 25% !important;
+	height: auto !important;
+	display: inline-flex !important;
+	background: white;
+	border-radius: 4px;
+	padding: 25px 20px !important;
+}
+.overlay.bg-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.c-closing {
+	z-index: 10;
+	position: absolute;
+	top: 30px;
+	right: 45px;
+	font-size: 30px;
+	color: white;
+	line-height: 1;
+	font-family: Arial;
+	display: block;
+    cursor: pointer;
+    transition: $global-transition;
+
+    &:hover{
+        transition: $global-transition;
+        transform: scale(1.2);
+    }
+}
 
 @import 'utilities/_align';
 @import 'utilities/_animations';

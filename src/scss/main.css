@@ -1100,25 +1100,21 @@ html, body {
   height: auto;
   opacity: 1;
   width: 100%;
-  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #ffc018), color-stop(50%, transparent));
-  background: linear-gradient(to right, #ffc018 50%, transparent 50%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(100%, #ffc018), color-stop(0%, transparent));
+  background: linear-gradient(to right, #ffc018 100%, transparent 0%);
   background-position: right bottom;
-  background-size: 200% 100%;
+  background-size: 100%;
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
-  -webkit-animation: expand-card 350ms forwards cubic-bezier(0.25, 0.1, 0.25, 1), expand-shadow 550ms cubic-bezier(0.25, 0.1, 0.25, 1) 1000ms forwards;
-          animation: expand-card 350ms forwards cubic-bezier(0.25, 0.1, 0.25, 1), expand-shadow 550ms cubic-bezier(0.25, 0.1, 0.25, 1) 1000ms forwards;
 }
 
 .c-card--info {
-  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, transparent));
-  background: linear-gradient(to right, white 50%, transparent 50%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(100%, white), color-stop(0%, transparent));
+  background: linear-gradient(to right, white 100%, transparent 0%);
   background-position: right bottom;
-  background-size: 200% 100%;
+  background-size: 100%;
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
-  -webkit-animation: expand-card 350ms forwards cubic-bezier(0.25, 0.1, 0.25, 1), expand-shadow 550ms cubic-bezier(0.25, 0.1, 0.25, 1) 1000ms forwards;
-          animation: expand-card 350ms forwards cubic-bezier(0.25, 0.1, 0.25, 1), expand-shadow 550ms cubic-bezier(0.25, 0.1, 0.25, 1) 1000ms forwards;
 }
 
 @-webkit-keyframes fadeIn {
@@ -1208,10 +1204,8 @@ html, body {
   border-radius: 3px;
   -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
           box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-  opacity: 0;
+  opacity: 1;
   cursor: pointer;
-  -webkit-animation: fadeIn-half 450ms ease forwards;
-          animation: fadeIn-half 450ms ease forwards;
   -webkit-animation-delay: 300ms;
           animation-delay: 300ms;
 }
@@ -1475,6 +1469,54 @@ html, body {
 
 .root {
   overflow: hidden;
+}
+
+.overlay canvas {
+  width: 25% !important;
+  height: auto !important;
+  display: -webkit-inline-box !important;
+  display: -ms-inline-flexbox !important;
+  display: inline-flex !important;
+  background: white;
+  border-radius: 4px;
+  padding: 25px 20px !important;
+}
+
+.overlay.bg-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.c-closing {
+  z-index: 10;
+  position: absolute;
+  top: 30px;
+  right: 45px;
+  font-size: 30px;
+  color: white;
+  line-height: 1;
+  font-family: Arial;
+  display: block;
+  cursor: pointer;
+  -webkit-transition: all 150ms ease-in-out 0ms;
+  transition: all 150ms ease-in-out 0ms;
+}
+
+.c-closing:hover {
+  -webkit-transition: all 150ms ease-in-out 0ms;
+  transition: all 150ms ease-in-out 0ms;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 /* ==========================================================================

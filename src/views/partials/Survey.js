@@ -176,7 +176,8 @@ export class Survey extends Component {
                   action={this.handleChange}
                   lastindex={this.state.survey.length}
                   submitForm={this.submitForm}
-                />);
+                />
+              );
             }
 
             return steps;

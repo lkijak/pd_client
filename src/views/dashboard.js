@@ -6,6 +6,7 @@ import UserPanel from './partials/UserPanel';
 import MenuTop from './partials/MenuTop';
 import UserProfile from './partials/UserProfile';
 import TaskBoard from './partials/TaskBoard';
+import ChartsHistory from './partials/ChartsHistory';
 
 class Dashboard extends Component {
 
@@ -13,7 +14,8 @@ class Dashboard extends Component {
     user: user,
     BE: null,
     displaySurvey: null,
-    displayGraph: null
+    displayGraph: null,
+    displayHistory: null
   }
 
   // Check if user exist in backend
@@ -92,15 +94,28 @@ class Dashboard extends Component {
     this.setState({ displaySurvey: true });
   }
 
+  displayChartHistory = () => {
+    this.setState({ displayHistory: true });
+  }
+
+  hideChartHistory = () => {
+    this.setState({displayHistory: null});
+  }
+
   render() {
     return (
       <UserPanel>
         <MenuTop />
-        <UserProfile displayGraph={ this.state.displayGraph } displaySurvey={this.displaySurvey} />
+        <UserProfile 
+          displayGraph={ this.state.displayGraph } 
+          displaySurvey={this.displaySurvey} 
+          displayChartHistory={this.displayChartHistory}
+        />
         <TaskBoard 
           isUser={this.state.user ? "true" : "false"} 
         />
         {this.state.displaySurvey && <Survey />}
+        {this.state.displayHistory && <ChartsHistory hideChartHistory={this.hideChartHistory}/>}
       </UserPanel>
     );
   }

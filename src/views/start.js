@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { GoogleLogin } from 'react-google-login';
-import { googleClientId, reportSuccess, reportError, user } from './helpers';
+import { googleClientId, reportSuccess, reportError } from './helpers';
 
 class Start extends Component {  
 

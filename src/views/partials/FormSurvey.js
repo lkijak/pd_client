@@ -36,6 +36,7 @@ export class FormSurvey extends Component {
                         <FormControlLabel value="5" control={<Radio />} label="5" labelPlacement="top" />
                     </RadioGroup>
                 </FormControl>
+                <Box mt={4}>{this.props.stepindex+1}/{this.props.lastindex}</Box>
             </Box>
         )
     }
