@@ -97,7 +97,7 @@ class Dashboard extends Component {
       <UserPanel>
         <MenuTop />
         <UserProfile displayGraph={ this.state.displayGraph } />
-        <TaskBoard />
+        <TaskBoard isUser={this.state.user ? "true" : "false"}/>
         {this.state.displaySurvey && <Survey />}
       </UserPanel>
     );

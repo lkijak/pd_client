@@ -5,10 +5,18 @@ import Box from '@material-ui/core/Box';
 
 export class TextInput extends Component {
 
-    createTask = (e) => {
-        this.props.createTask(e);
-        if (e.key === 'Enter') {
-            e.target.value = "";
+    state = {
+        text: ""
+    }
+
+    changeText = (e) => {
+        this.setState({text: e.target.value});
+    }
+    
+    submitText = (e) => {
+        if (e.key === 'Enter' && this.state.text !== "") {
+            this.props.createTask(this.state.text);
+            this.setState({text: ""});
         }
     }
 
@@ -23,8 +31,9 @@ export class TextInput extends Component {
                     fullWidth
                     background="white"
                     margin="dense"
-                    onChange={(e) => {this.props.updateValue(e.target.value)}}
-                    onKeyDown={(e) => {this.createTask(e)}}
+                    onChange={(e) => {this.changeText(e)}}
+                    onKeyDown={(e) => {this.submitText(e)}}
+                    value={this.state.text}
                 />
             </Box>
         )

@@ -5,10 +5,18 @@ import Box from '@material-ui/core/Box';
 
 export class TextSubInput extends Component {
 
-    createTask = (e) => {
-        this.props.createTask(e, this.props.parentId);
-        if (e.key === 'Enter') {
-            e.target.value = "";
+    state = {
+        text: ""
+    }
+
+    changeText = (e) => {
+        this.setState({text: e.target.value});
+    }
+    
+    submitText = (e) => {
+        if (e.key === 'Enter' && this.state.text !== "") {
+            this.props.createSubTask(this.props.parentId, this.state.text);
+            this.setState({text: ""});
         }
     }
 
@@ -16,6 +24,7 @@ export class TextSubInput extends Component {
         return (
             <Box mb={2.5}>
                 <TextField 
+                    ref={(el) => (this.input = el)}
                     id="standard-search" 
                     label={this.props.label} 
                     variant="outlined" 
@@ -23,8 +32,9 @@ export class TextSubInput extends Component {
                     fullWidth
                     background="white"
                     margin="dense"
-                    onChange={(e) => {this.props.updateValue(e.target.value)}}
-                    onKeyDown={(e) => {this.createTask(e)}}
+                    onChange={(e) => {this.changeText(e)}}
+                    onKeyDown={(e) => {this.submitText(e)}}
+                    value={this.state.text}
                 />
             </Box>
         )

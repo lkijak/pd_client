@@ -7,6 +7,16 @@ import { MarkunreadSharp } from '@material-ui/icons';
 
 export class SubTasks extends Component {
 
+  calculateCompleted = () => {
+    let completed = this.props.userSubtasks.filter((obj) => obj.isCompleted === true).length;
+    let len = this.props.userSubtasks.length;
+    let calc = Math.floor(completed / len * 100);
+    if (!calc) {
+      calc = 0;
+    }
+    return calc;
+  }
+
   render() {
     return (
       <div className={`u-flex-1/2 u-padding-horizontal-big ${this.props.isVisible ? 'is-active' : 'u-hidden'}`}>
@@ -15,17 +25,20 @@ export class SubTasks extends Component {
             title={`Plan: ${this.props.parentName}`}
             desc="Twój plan to gwarancja osiągnięcia zamierzonego celu. Przemyśl realizację zgodnie z metodologią SMART, następnie wypisz wszystkie kroki i zacznij działać."
           />
-          <Progress completed={65} />
-          <TextSubInput label="Dodaj nowy krok" createTask={this.props.createTask} parentId={this.props.parentId} updateValue={this.props.updateValue} />
+          {this.props.readyForTask && <Progress completed={this.calculateCompleted()} />}
+          <TextSubInput label="Dodaj nowy krok" createSubTask={this.props.createSubTask} parentId={this.props.parentId} updateValue={this.props.updateValue} />
           <ul className="c-list u-flex-12/12 u-margin-bottom-none list-scrolling">
             {this.props.readyForTask && this.props.userSubtasks.map((task) => {
                 return <Task 
                   task={task} 
-                  key={Math.floor(Math.random() * Math.floor(3000))} 
-                  id={Math.floor(Math.random() * Math.floor(3000))} 
+                  key={Math.floor(Math.random() * Math.floor(300000))} 
+                  id={Math.floor(Math.random() * Math.floor(300000))} 
                   title={task.name} 
                   completed={task.isCompleted} 
-                  isMainTask={"false"}
+                  isMainTask={false}
+                  doneSubTask={this.props.doneSubTask}
+                  archiveSubTask={this.props.archiveSubTask}
+                  parentId={this.props.parentId}
                 />
             })}
           </ul>

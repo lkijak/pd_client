@@ -17,62 +17,98 @@ export class TaskBoard extends Component {
     this.setState({ textField: text });
   }
 
-  createTask = (e) => {
-    if (e.key === 'Enter') {
+  createTask = (taskName) => {
       const userName = getUsername();
 
       axios.post(`${API_DOMAIN}/UserTask`, {
-        name: this.state.textField,
+        name: taskName,
         isCompleted: false,
         isArchiwed: false,
         userName: userName
       },
-        {
-          'Content-Type': 'application/json'
-        })
-        .then((response) => {
-          console.log("Wysłano dane do utworzenia głównego celu.", response);
-          this.getMainTasks();
-        })
-        .catch((error) => {
-          console.error("Błąd wysyłki danych do utworzenia celu.", error);
-        });
-    }
+      {
+        'Content-Type': 'application/json'
+      })
+      .then((response) => {
+        console.log("Wysłano dane do utworzenia głównego celu.", response);
+        this.getMainTasks();
+      })
+      .catch((error) => {
+        console.error("Błąd wysyłki danych do utworzenia celu.", error);
+      });
   }
 
-  createSubTask = (e, parentId) => {
-    if (e.key === 'Enter') {
-      const userName = getUsername();
-
-
-      let editedTask = {};
-
+  createSubTask = (parentId, subtaskName) => {
+      let updatedState = this.state.tasks;
       const newTask = {
-        name: this.state.textField,
+        name: subtaskName,
         isCompleted: false,
       }
+      
+      let editedTask = updatedState.find(mainTask => mainTask.taskid === parentId);
+      editedTask.userSubtasks = [...editedTask.userSubtasks, newTask];
 
-      let updatedState = this.state.tasks;
-      updatedState.forEach(task => {
-        if (task.taskid === parentId) {
-          task.userSubtasks = [...task.userSubtasks, newTask];
-          editedTask = task;
-          console.log(editedTask);
+      this.setState({tasks: updatedState});
+      this.updateWholeTask(editedTask);
+  }
 
-          axios.post(`${API_DOMAIN}/UserTask`, editedTask,
-            {
-              'Content-Type': 'application/json'
-            })
-            .then((response) => {
-              console.log("Wysłano dane zaktualizowanego zadania i jego podrzędnych zadań.", response);
-              this.getMainTasks();
-            })
-            .catch((error) => {
-              console.error("Błąd wysyłki danych zaktualizowanego zadania i jego podrzędnych zadań.", error);
-            });
-        }
-      });
+  archiveTask = (id) => {
+    let updatedState = this.state.tasks;
+    
+    let editedTask = updatedState.find(mainTask => mainTask.taskid === id);
+    editedTask.isArchiwed = true;
+    console.log("Archiwizacja celu:", editedTask);
+    
+    this.setState({tasks: updatedState});
+    this.updateWholeTask(editedTask);
+  }
+
+  doneTask = (id) => {
+    let updatedState = this.state.tasks;
+    
+    let editedTask = updatedState.find(mainTask => mainTask.taskid === id);
+    editedTask.isCompleted = !editedTask.isCompleted;
+    
+    this.setState({tasks: updatedState});
+    this.updateWholeTask(editedTask);
+  }
+
+  archiveSubTask = (parentId, subtaskName) => {
+    let updatedState = this.state.tasks;
+    
+    let editedTask = updatedState.find(mainTask => mainTask.taskid === parentId);
+    let subTask = editedTask.userSubtasks.find(subTask => subTask.name === subtaskName);
+    let index = editedTask.userSubtasks.indexOf(subTask);
+    if(index !== -1) {
+      editedTask.userSubtasks.splice(index, 1);
     }
+    
+    this.setState({tasks: updatedState});
+    this.updateWholeTask(editedTask);
+  }
+
+  doneSubTask = (parentId, subtaskName) => {
+    let updatedState = this.state.tasks;
+    
+    let editedTask = updatedState.find(mainTask => mainTask.taskid === parentId);
+    let subTask = editedTask.userSubtasks.find(subTask => subTask.name === subtaskName);
+    subTask.isCompleted = !subTask.isCompleted;
+    
+    this.setState({tasks: updatedState});
+    this.updateWholeTask(editedTask);
+  }
+
+  updateWholeTask = (editedTask) => {
+    axios.patch(`${API_DOMAIN}/UserTask`, editedTask, {
+      'Content-Type': 'application/json'
+    })
+    .then((response) => {
+      console.log("Wysłano dane zaktualizowanego zadania i jego podrzędnych zadań.", response);
+      this.getMainTasks();
+    })
+    .catch((error) => {
+      console.error("Błąd wysyłki danych zaktualizowanego zadania i jego podrzędnych zadań.", error);
+    });
   }
 
   getMainTasks = () => {
@@ -116,6 +152,8 @@ export class TaskBoard extends Component {
           updateValue={this.updateValue}
           createTask={this.createTask}
           chooseMainTask={this.chooseMainTask}
+          doneTask={this.doneTask}
+          archiveTask={this.archiveTask}
         />
 
         {this.state.tasks && this.state.tasks.map((parentTask) => {
@@ -127,7 +165,9 @@ export class TaskBoard extends Component {
             readyForTask={this.state.readyForTask.toString()}
             isVisible={this.state.visibleTask === parentTask.taskid}
             updateValue={this.updateValue}
-            createTask={this.createSubTask}
+            createSubTask={this.createSubTask}
+            doneSubTask={this.doneSubTask}
+            archiveSubTask={this.archiveSubTask}
           />
         })}
 

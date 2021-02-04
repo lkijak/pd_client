@@ -34,7 +34,7 @@ class Start extends Component {
                                 onSuccess={reportSuccess}
                                 onFailure={reportError}
                                 cookiePolicy={'single_host_origin'}
-                                isSignedIn={true}
+                                isSignedIn={false}
                             />
                         </div>
                     </div>

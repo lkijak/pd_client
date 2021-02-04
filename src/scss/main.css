@@ -1121,56 +1121,6 @@ html, body {
           animation: expand-card 350ms forwards cubic-bezier(0.25, 0.1, 0.25, 1), expand-shadow 550ms cubic-bezier(0.25, 0.1, 0.25, 1) 1000ms forwards;
 }
 
-.c-card:nth-of-type(1) {
-  -webkit-animation-delay: 350ms;
-          animation-delay: 350ms;
-}
-
-.c-card:nth-of-type(2) {
-  -webkit-animation-delay: 500ms;
-          animation-delay: 500ms;
-}
-
-.c-card:nth-of-type(3) {
-  -webkit-animation-delay: 650ms;
-          animation-delay: 650ms;
-}
-
-.c-card:nth-of-type(4) {
-  -webkit-animation-delay: 800ms;
-          animation-delay: 800ms;
-}
-
-.c-card:nth-of-type(5) {
-  -webkit-animation-delay: 950ms;
-          animation-delay: 950ms;
-}
-
-.c-card:nth-of-type(6) {
-  -webkit-animation-delay: 1100ms;
-          animation-delay: 1100ms;
-}
-
-.c-card:nth-of-type(7) {
-  -webkit-animation-delay: 1250ms;
-          animation-delay: 1250ms;
-}
-
-.c-card:nth-of-type(8) {
-  -webkit-animation-delay: 1400ms;
-          animation-delay: 1400ms;
-}
-
-.c-card:nth-of-type(9) {
-  -webkit-animation-delay: 1550ms;
-          animation-delay: 1550ms;
-}
-
-.c-card:nth-of-type(10) {
-  -webkit-animation-delay: 1700ms;
-          animation-delay: 1700ms;
-}
-
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -1403,8 +1353,75 @@ html, body {
 }
 
 .done {
+  -webkit-transition: all 150ms ease-in-out 0ms;
+  transition: all 150ms ease-in-out 0ms;
   text-decoration: line-through;
   background-color: #acacac;
+}
+
+.c-list__item {
+  -webkit-transition: all 150ms ease-in-out 0ms;
+  transition: all 150ms ease-in-out 0ms;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.task-icons {
+  width: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.task-icons svg {
+  opacity: 0.7;
+  -webkit-transition: all 150ms ease-in-out 0ms;
+  transition: all 150ms ease-in-out 0ms;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.task-icons svg:hover {
+  -webkit-transition: all 150ms ease-in-out 0ms;
+  transition: all 150ms ease-in-out 0ms;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.task-icons svg:nth-of-type(1):hover {
+  -webkit-transition: all 150ms ease-in-out 0ms;
+  transition: all 150ms ease-in-out 0ms;
+  fill: #dc004e;
+  opacity: 0.8;
+}
+
+.task-icons svg:nth-of-type(2):hover {
+  -webkit-transition: all 150ms ease-in-out 0ms;
+  transition: all 150ms ease-in-out 0ms;
+  fill: #388e3c;
+  opacity: 0.8;
+}
+
+.task-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(100% - 60px);
+  padding-right: 20px;
 }
 
 /* ==========================================================================
