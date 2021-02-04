@@ -28,9 +28,7 @@ export class UserPanel extends Component {
 
   render() {
     return (
-      <div className="u-flex-12/12 u-padding-big u-padding-horizontal-great u-text--right u-text--smallest u-bg-color--6 u-font-color--3">
-        <a className="o-link u-margin-right-great">RODO</a>
-        <a className="o-link u-margin-right-great">Polityka prywatności</a>
+      <div className="u-flex-12/12 u-padding-big u-padding-horizontal-great u-text--right u-text--smallest u-bg-color--6 u-font-color--3 c-menu-top">
         <a className="o-link u-margin-right-great" onClick={this.deleteUser}>Usuń konto</a>
         <GoogleLogout
           clientId={googleClientId}

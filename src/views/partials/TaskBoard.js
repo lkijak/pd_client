@@ -60,7 +60,7 @@ export class TaskBoard extends Component {
     console.log("Archiwizacja celu:", editedTask);
     
     this.setState({tasks: updatedState});
-    this.updateWholeTask(editedTask);
+    this.archiveWholeTask(id);
   }
 
   doneTask = (id) => {
@@ -111,6 +111,24 @@ export class TaskBoard extends Component {
     });
   }
 
+  archiveWholeTask = (id) => {
+    axios.delete(`${API_DOMAIN}/UserTask/Archiwe`, {
+      params: {
+        taskId: id
+      }
+    }, 
+    {
+      'Content-Type': 'application/json'
+    })
+    .then((response) => {
+      console.log("Wysłano prośbę o usunięcie całego zadania (celu).", response);
+      this.getMainTasks();
+    })
+    .catch((error) => {
+      console.error("Błąd wysyłki żądania usunięcia całego zadania (celu).", error);
+    });
+  }
+
   getMainTasks = () => {
     const userName = getUsername();
     const self = this;
@@ -129,7 +147,7 @@ export class TaskBoard extends Component {
         });
       })
       .catch((error) => {
-        console.error('Błąd pobierania listy zadań.', error);
+        console.error('Błąd pobierania listy zadań. Może być to spowodowane brakiem zadań w systemie.', error);
       });
   }
 
@@ -144,7 +162,7 @@ export class TaskBoard extends Component {
 
   render() {
     return (
-      <div className="u-flex-8/12 o-flex u-padding-horizontal-big">
+      <div className="u-flex-8/12 o-flex u-padding-horizontal-big c-taskboard">
 
         <MainTasks
           tasks={this.state.tasks}

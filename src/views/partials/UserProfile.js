@@ -6,7 +6,7 @@ import Header from '../commons/Header';
 export class UserProfile extends Component {
     render() {
         return (
-            <div className="u-flex-3/12 u-padding-horizontal-big">
+            <div className="u-flex-3/12 u-padding-horizontal-big c-user-profile">
                 <div className="c-card u-padding-big u-padding-horizontal-great o-flex o-flex--centered-v u-margin-bottom-big">
                     <img className="c-nav__picture u-margin-right fadeOnStart" src={user.profileObj.imageUrl}></img>
                     <strong>{user.profileObj.name}</strong>
@@ -17,7 +17,9 @@ export class UserProfile extends Component {
                         desc="Koło powstało na podstawie Twoich odpowiedzi w ankiecie. Obrazuje obszary życia, nad którymi powinieneś popracować, aby utrzymać równowagę w życiu. Poziom wartości powinien być wyrównywany i stopniowo zwiększany w każdej ze sfer."
                     />
                     <div className="o-flex" style={{ margin: '0 auto 0 auto' }}>
-                    {this.props.displayGraph ? <LifeGraph /> : false}
+                    {this.props.displayGraph ? <LifeGraph 
+                        displaySurvey={this.props.displaySurvey}
+                    /> : false}
                     </div>
                 </div>
             </div>

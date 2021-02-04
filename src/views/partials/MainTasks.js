@@ -18,8 +18,8 @@ export class MainTasks extends Component {
 
   render() {
     return (
-      <div className="u-flex-1/2 o-flex o-flex--centered-h">
-        <div className="c-card u-padding-great o-flex o-flex--start o-flex--column">
+      <div className="u-flex-1/2 o-flex o-flex--centered-h c-maintasks">
+        <div className="c-card u-padding-great o-flex o-flex--start o-flex--column high-card">
           <Header
             title="Twoje życiowe cele"
             desc="Przeglądaj swoje marzenia codziennie, aby pamiętać do czego dążysz i jak to osiągnąć."

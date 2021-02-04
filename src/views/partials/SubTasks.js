@@ -19,14 +19,19 @@ export class SubTasks extends Component {
 
   render() {
     return (
-      <div className={`u-flex-1/2 u-padding-horizontal-big ${this.props.isVisible ? 'is-active' : 'u-hidden'}`}>
-        <div className="c-card u-padding-great o-flex o-flex--start o-flex--column">
+      <div className={`u-flex-1/2 u-padding-horizontal-big ${this.props.isVisible ? 'is-active' : 'u-hidden'}` + " c-subtasks"}>
+        <div className="c-card u-padding-great o-flex o-flex--start o-flex--column high-card">
           <Header
             title={`Plan: ${this.props.parentName}`}
             desc="Twój plan to gwarancja osiągnięcia zamierzonego celu. Przemyśl realizację zgodnie z metodologią SMART, następnie wypisz wszystkie kroki i zacznij działać."
           />
           {this.props.readyForTask && <Progress completed={this.calculateCompleted()} />}
-          <TextSubInput label="Dodaj nowy krok" createSubTask={this.props.createSubTask} parentId={this.props.parentId} updateValue={this.props.updateValue} />
+          <TextSubInput 
+            label="Dodaj nowy krok" 
+            createSubTask={this.props.createSubTask} 
+            parentId={this.props.parentId} 
+            updateValue={this.props.updateValue} 
+          />
           <ul className="c-list u-flex-12/12 u-margin-bottom-none list-scrolling">
             {this.props.readyForTask && this.props.userSubtasks.map((task) => {
                 return <Task 

@@ -106,7 +106,7 @@ class LifeGraph extends Component {
         />
         <Box mt={1}>
           <div className="o-flex o-flex--wrap o-flex--space-between">
-            <Button variant="contained" color="primary">Nowy test</Button>
+            <Button variant="contained" color="primary" onClick={this.props.displaySurvey}>Nowy test</Button>
             <Button variant="contained" color="primary">Historia</Button>
           </div>
         </Box>

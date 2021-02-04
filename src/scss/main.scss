@@ -279,8 +279,31 @@ html, body {
 }  
 
 .list-scrolling {
-    max-height: 500px;
+    max-height: 65vh;
     overflow-y: scroll;
+    scrollbar-color: #6200ea rgba(0,0,0,0.15);
+    scrollbar-width: thin;
+    @media (max-width: 1800px) {
+        max-height: 62vh;
+    }
+    @media (max-width: 1600px) {
+        max-height: 58vh;
+    }
+    @media (max-width: 1440px) {
+        max-height: 60vh;
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: none;
+        background: rgba(0,0,0,0.15);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #6200ea;
+        outline: none;
+    }
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
 }
 
 .c-dashboard {
@@ -407,6 +430,22 @@ html, body {
 	display: flex;
 	width: calc(100% - 60px);
     padding-right: 20px;
+}
+
+.c-menu-top {
+    height: 60px;
+}
+.c-taskboard, .c-subtasks, .c-maintasks, .high-card {
+    height: 100vh;
+    max-height: 85vh;
+    overflow-y: hidden;
+}
+.c-user-profile {
+    max-height: 85vh;
+}
+
+.root {
+    overflow: hidden;
 }
 
 
