@@ -8,22 +8,25 @@ export class UserPanel extends Component {
   deleteUser = () => {
     let userName = getUsername();
 
-    axios.delete(`${API_DOMAIN}/User`, {
-      params: {
-        userName: userName
-      }
-    })
-      .then((response) => {
-        if (response.status === 200) {
-          console.log('Usunięto użytkownika ' + userName, response);
-          reportLogout();
-          localStorage.removeItem("user");
-          window.location.reload();
+    let r = window.confirm("Dupka");
+    if(r === true){
+      axios.delete(`${API_DOMAIN}/User`, {
+        params: {
+          userName: userName
         }
       })
-      .catch((error) => {
-        console.log('Błąd usuwania użytkownika.', error);
-      });
+        .then((response) => {
+          if (response.status === 200) {
+            console.log('Usunięto użytkownika ' + userName, response);
+            reportLogout();
+            localStorage.removeItem("user");
+            window.location.reload();
+          }
+        })
+        .catch((error) => {
+          console.log('Błąd usuwania użytkownika.', error);
+        });
+    }
   }
 
   render() {

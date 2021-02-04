@@ -10,113 +10,113 @@ export class Survey extends Component {
       // Rozwój osobisty
       {
         questionID: 1,
-        question: `Czy masz plan na siebie?`,
+        question: `1/24 Czy masz plan na siebie?`,
       },
       {
         questionID: 2,
-        question: `Czy inwestujesz w swój rozwój?`,
+        question: `2/24 Czy inwestujesz w swój rozwój?`,
       },
       {
         questionID: 3,
-        question: `Czy regularnie czytasz książki?`,
+        question: `3/24 Czy regularnie czytasz książki?`,
       },
 
       // Kariera
       {
         questionID: 4,
-        question: `Czy obecna praca daje Ci satysfakcję?`,
+        question: `4/24 Czy obecna praca daje Ci satysfakcję?`,
       },
       {
         questionID: 5,
-        question: `Czy lubisz swoją pracę?`,
+        question: `5/24 Czy lubisz swoją pracę?`,
       },
       {
         questionID: 6,
-        question: `Czy praca pozwala Ci się rozwijać?`,
+        question: `6/24 Czy praca pozwala Ci się rozwijać?`,
       },
 
       // Finanse
       {
         questionID: 7,
-        question: `Czy jesteś zadowolony z poziomu dochodu?`,
+        question: `7/24 Czy jesteś zadowolony z poziomu dochodu?`,
       },
       {
         questionID: 8,
-        question: `Czy masz zabezpieczenie finansowe na kilka miesięcy bez pracy?`,
+        question: `8/24 Czy masz zabezpieczenie finansowe na kilka miesięcy bez pracy?`,
       },
       {
         questionID: 9,
-        question: `Czy wystarcza Ci na życie i podstawowe rzeczy?`,
+        question: `9/24 Czy wystarcza Ci na życie i podstawowe rzeczy?`,
       },
 
       // Otoczenie
       {
         questionID: 10,
-        question: `Czy jesteś zadowolony z miejsca zamieszkania, stanu mieszkania?`,
+        question: `10/24 Czy jesteś zadowolony z miejsca zamieszkania, stanu mieszkania?`,
       },
       {
         questionID: 11,
-        question: `Czy lubisz swoje otoczenie?`,
+        question: `11/24 Czy lubisz swoje otoczenie?`,
       },
       {
         questionID: 12,
-        question: `Czy otoczenie zapewnia Ci poczucie bezpieczeństwa?`,
+        question: `12/24 Czy otoczenie zapewnia Ci poczucie bezpieczeństwa?`,
       },
 
       // Partner, małżonek
       {
         questionID: 13,
-        question: `Czy jesteś szczęśliwy w obecnym związku?`,
+        question: `13/24 Czy jesteś szczęśliwy w obecnym związku?`,
       },
       {
         questionID: 14,
-        question: `Czy partner jest dla Ciebie wsparciem?`,
+        question: `14/24 Czy partner jest dla Ciebie wsparciem?`,
       },
       {
         questionID: 15,
-        question: `Czy ufacie sobie?`,
+        question: `15/24 Czy ufacie sobie?`,
       },
 
       // Rodzina i przyjaciele
       {
         questionID: 16,
-        question: `Czy masz zaufane grono przyjaciół?`,
+        question: `16/24 Czy masz zaufane grono przyjaciół?`,
       },
       {
         questionID: 17,
-        question: `Czy możesz polegać na rodzinnie i przyjaciołach?`,
+        question: `17/24 Czy możesz polegać na rodzinnie i przyjaciołach?`,
       },
       {
         questionID: 18,
-        question: `Czy lubisz spędzać czas z rodziną?`,
+        question: `18/24 Czy lubisz spędzać czas z rodziną?`,
       },
 
       // Wypoczynek i rozrywka
       {
         questionID: 19,
-        question: `Czy masz czas na swoje hobby i zainteresowania?`,
+        question: `19/24 Czy masz czas na swoje hobby i zainteresowania?`,
       },
       {
         questionID: 20,
-        question: `Czy budzisz się wypoczęty?`,
+        question: `20/24 Czy budzisz się wypoczęty?`,
       },
       {
         questionID: 21,
-        question: `Czy wychodzisz z domu i odpoczywasz np. w parku, lesie?`,
+        question: `21/24 Czy wychodzisz z domu i odpoczywasz np. w parku, lesie?`,
       },
 
       // Zdrowie i sprawność fiz
       {
         questionID: 22,
-        question: `Czy masz jakieś dolegliwości, choroby przewlekłe?`,
+        question: `22/24 Czy masz jakieś dolegliwości, choroby przewlekłe?`,
       },
       {
         questionID: 23,
-        question: `Czy robisz profilaktyczne badania?`,
+        question: `23/24 Czy robisz profilaktyczne badania?`,
       },
       {
         questionID: 24,
-        question: `Czy uprawiasz sport, ćwiczenia fizyczne, regularnie?`,
+        question: `24/24 Czy uprawiasz sport, ćwiczenia fizyczne, regularnie?`,
       },
     ],
     answers: []
