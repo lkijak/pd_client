@@ -24,7 +24,7 @@ class LifeGraph extends Component {
         let dataset = response.data.userResponseQuestionAndAnswerViewModels;
         let data = [];
 
-        for (let i = 0; i < dataset.length-1; i=i+3) {
+        for (let i = 0; i < dataset.length; i=i+3) {
           let temp = parseInt(dataset[i].answerText) + parseInt(dataset[i+1].answerText) + parseInt(dataset[i+2].answerText);
           temp = temp/3;
           temp = parseFloat(temp.toFixed(2))
@@ -62,7 +62,7 @@ class LifeGraph extends Component {
         }]
       },
       options: {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: false,
         scale: {
           angleLines: {

@@ -135,10 +135,12 @@ export class Survey extends Component {
   }
 
   submitForm = () => {
+    console.log(this.state.answers);
+
     axios.post(`${API_DOMAIN}/Survey/UserResponse`, {
       surveyName: "Life_Circle",
       userName: getUsername(),
-      userResponseQuestionAndAnswerViewModels: this.state.answers
+      userResponseQuestionAndAnswerViewModels: [...this.state.answers]
     },
       {
         'Content-Type': 'application/json'
