@@ -9,7 +9,7 @@ export class FormSurvey extends Component {
 
     handleChange = (event) => {
         // Add value to survey state
-        this.props.action(this.props.question, event.target.value);
+        this.props.action(this.props.question, event.target.value, this.props.stepindex+1);
         this.setState({done: 1});
 
         setTimeout(() => {

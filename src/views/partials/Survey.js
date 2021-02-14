@@ -154,11 +154,12 @@ export class Survey extends Component {
       });
   }
 
-  handleChange = (question, answer) => {
+  handleChange = (question, answer, questionId) => {
     this.setState({
       answers: [...this.state.answers, {
         questionText: question,
-        answerText: answer
+        answerText: answer,
+        questionNo: questionId
       }]
     });
   }

@@ -47,6 +47,18 @@ export class ChartsHistory extends Component {
         let date = this.state.data[j].dateCompleting;
         date = date.slice(0, date.indexOf("T"));
 
+        for (let i = 0; i < dataset.length; i++) {
+          for (let j = 0; j < dataset.length; j++) {
+            if(dataset[j+1]){
+              if(dataset[j].questionNo > dataset[j+1].questionNo){
+                let temp = dataset[j+1];
+                dataset[j+1] = dataset[j];
+                dataset[j] = temp;
+              }
+            }
+          }
+        }
+
         for (let i = 0; i < dataset.length; i=i+3) {
           let temp = parseInt(dataset[i].answerText) + parseInt(dataset[i+1].answerText) + parseInt(dataset[i+2].answerText);
           temp = temp/3;
